@@ -7,7 +7,7 @@
  * INCREMENT CACHE_VERSION when deploying a new version.
  */
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME    = `piscinas-sop-${CACHE_VERSION}`;
 
 // All assets to precache on install (relative to sw.js location = project root)
