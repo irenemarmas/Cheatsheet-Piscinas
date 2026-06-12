@@ -25,6 +25,11 @@ const GENERIC = new Set([
   'corregir y hacer seguimiento','riesgo medio','riesgo alto','riesgo bajo',
   'riesgo medio: corregir y hacer seguimiento','riesgo alto: actuar antes de uso normal',
   'sin riesgo inmediato','seguimiento normal',
+  'incidencia detectada','confirmar síntomas visibles',
+  'confirmar sintomas visibles','valorar con cliente',
+  'revisar historial de mantenimiento','comprobar parámetros',
+  'comprobar parametros','verificar dosificación','verificar dosificacion',
+  'seguimiento periódico','seguimiento periodico',
 ]);
 function hasUsefulContent(v) {
   if (v == null) return false;
@@ -209,34 +214,32 @@ function renderDecisionSop(ds) {
   return useful.length ? `<ul>${useful.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>` : '';
 }
 
-// ── V2 DRAWER ─────────────────────────────────────────────────────────────────
-function renderDrawerV2(f, pLabel, categorias) {
-  const fid   = f.id;
-  const parts = [];
+// ── V2 field-card block helper ────────────────────────────────────────────────
+function fieldBlock(icon, title, content, extraClass = '') {
+  if (!content) return '';
+  return `<section class="field-card-block${extraClass?' '+extraClass:''}">
+  <h3 class="field-card-block-title">${icon} ${title}</h3>
+  ${content}
+</section>`;
+}
 
-  parts.push(fichaHeader(f, pLabel, categorias));
-  const qs = quickSummary(f); if (qs) parts.push(qs);
-  const mn = miniNav(fid, f); if (mn) parts.push(mn);
+// ── Tech section inside technical-accordion ───────────────────────────────────
+function techSection(title, content) {
+  if (!content) return '';
+  return `<div class="tech-section">
+  <div class="tech-section-title">${title}</div>
+  ${content}
+</div>`;
+}
 
-  // RIESGO INMEDIATO (open)
-  const ri = filterUseful(f.riesgo_inmediato);
-  if (ri.length) {
-    const isCrit = f.prioridad==='critica'||f.prioridad==='alta';
-    parts.push(accordionSection('⚠ Riesgo inmediato',
-      `<ul>${ri.map(r=>`<li>${esc(flat(r))}</li>`).join('')}</ul>`,
-      { open:true, id:`${fid}-riesgo`, extraClass: isCrit?'sop-acc-critica':'' }));
-  }
-
-  // DESCARTA PRIMERO (open) — interactive Sí/No
-  const du = ensureArr(f.descartar_urgente);
-  if (du.length) {
-    const hasObjs = du.some(x => x && typeof x === 'object' && x.pregunta);
-    let duHtml = '';
-    if (hasObjs) {
-      const items = du.map((item, idx) => {
-        if (item && typeof item === 'object' && item.pregunta) {
-          const qid = `dq-${esc(fid)}-${idx}`;
-          return `<div class="sop-question" id="${qid}">
+// ── renderDescartar: Sí/No interactive blocks ─────────────────────────────────
+function renderDescartar(fid, du) {
+  const hasObjs = du.some(x => x && typeof x === 'object' && x.pregunta);
+  if (hasObjs) {
+    const items = du.map((item, idx) => {
+      if (item && typeof item === 'object' && item.pregunta) {
+        const qid = `dq-${esc(fid)}-${idx}`;
+        return `<div class="sop-question" id="${qid}">
   <p class="sop-question-title">${esc(item.pregunta)}</p>
   <div class="sop-question-actions">
     <button type="button" class="btn-si" onclick="window.sopToggle('${qid}','si')" aria-pressed="false">✓ Sí</button>
@@ -245,166 +248,200 @@ function renderDrawerV2(f, pLabel, categorias) {
   <div id="${qid}-si" class="sop-answer sop-answer-si">${esc(item.si||'')}</div>
   <div id="${qid}-no" class="sop-answer sop-answer-no">${esc(item.no||'')}</div>
 </div>`;
-        }
-        return hasUsefulContent(item) ? `<li>${esc(flat(item))}</li>` : '';
-      }).filter(Boolean);
-      duHtml = `<div class="sop-questions-list">${items.join('')}</div>`;
-    } else {
-      const useful = filterUseful(du);
-      if (useful.length) duHtml = `<ul>${useful.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`;
-    }
-    if (duHtml) parts.push(accordionSection('🔴 Descarta primero', duHtml, { open:true, id:`${fid}-descarta` }));
-  }
-
-  // DECISIÓN SOP (open)
-  const ds = ensureArr(f.decision_sop);
-  if (ds.length) {
-    const dsHtml = renderDecisionSop(ds);
-    if (dsHtml) parts.push(accordionSection('📋 Decisión SOP', dsHtml, { open:true, id:`${fid}-decision` }));
-  }
-
-  // SITUACIÓN VISIBLE (closed)
-  const sv = filterUseful(ensureArr(f.situacion_visible));
-  if (sv.length) parts.push(accordionSection('👁 Situación visible',
-    `<ul>${sv.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`, { id:`${fid}-sv` }));
-
-  // COMPROBACIONES RÁPIDAS (closed)
-  const cr = ensureArr(f.comprobaciones_rapidas);
-  if (cr.length) {
-    const hasObjsCR = cr.some(x => x && typeof x === 'object' && x.accion);
-    const crItems = cr.map(item => {
-      if (item && typeof item === 'object' && item.accion) {
-        return `<div class="sop-compr-block">
-  <span class="sop-compr-num">${esc(String(item.orden??''))}</span>
-  <div class="sop-compr-body">
-    ${item.bloque?`<div class="sop-compr-bloque">${esc(item.bloque)}</div>`:''}
-    <div class="sop-compr-accion">${esc(item.accion)}</div>
-  </div>
-</div>`;
       }
       return hasUsefulContent(item)?`<li>${esc(flat(item))}</li>`:'';
     }).filter(Boolean);
-    if (crItems.length) parts.push(accordionSection('🔎 Comprobaciones rápidas',
-      hasObjsCR?`<div class="sop-compr-list">${crItems.join('')}</div>`:`<ul>${crItems.join('')}</ul>`,
-      { id:`${fid}-compr` }));
+    return items.length ? `<div class="sop-questions-list">${items.join('')}</div>` : '';
+  }
+  const useful = filterUseful(du);
+  return useful.length ? `<ul class="field-bullets">${useful.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>` : '';
+}
+
+// ── V2 DRAWER — 5 field-card blocks + 1 technical accordion ──────────────────
+function renderDrawerV2(f, pLabel, categorias) {
+  const fid = f.id;
+  const parts = [];
+
+  // ─ HEADER ─
+  parts.push(fichaHeader(f, pLabel, categorias));
+
+  // ─ BLOCK 1: PROBLEMA VISIBLE ─
+  {
+    const sv = filterUseful(ensureArr(f.situacion_visible));
+    const ri = filterUseful(f.riesgo_inmediato);
+    let html = '';
+    if (sv.length) {
+      html += `<ul class="field-bullets">${sv.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`;
+    }
+    if (ri.length) {
+      const isCrit = f.prioridad==='critica'||f.prioridad==='alta';
+      html += `<div class="risk-block${isCrit?' risk-block--alta':''}">
+  <span class="risk-label">⚠ Riesgo inmediato</span>
+  <ul class="field-bullets">${ri.map(r=>`<li>${esc(flat(r))}</li>`).join('')}</ul>
+</div>`;
+    }
+    if (html) parts.push(fieldBlock('👁', 'Problema visible', html));
   }
 
-  // PARÁMETROS (closed)
-  const pm = ensureArr(f.parametros);
-  if (pm.length) { const pmH = renderParametros(pm); if (pmH) parts.push(accordionSection('📊 Qué medir', pmH, { id:`${fid}-mediciones` })); }
-
-  // PROTOCOLO (closed) — strip any leading "1." from data
-  const proto = filterUseful(f.protocolo);
-  if (proto.length) {
-    const stepsHtml = proto.map(p => {
-      const t = flat(p).replace(/^\d+[\.\)]\s*/,'').trim();
-      return t?`<li>${esc(t)}</li>`:'';
-    }).filter(Boolean).join('');
-    if (stepsHtml) parts.push(accordionSection('🔧 Protocolo paso a paso',
-      `<ol class="sop-steps">${stepsHtml}</ol>`, { id:`${fid}-protocolo` }));
+  // ─ BLOCK 2: PROCEDIMIENTO A SEGUIR ─
+  {
+    const ds  = ensureArr(f.decision_sop);
+    const du  = ensureArr(f.descartar_urgente);
+    let html = '';
+    if (ds.length) {
+      const cards = ds.slice(0,3).map(block => {
+        const cond  = (block.si || block.condicion || '').trim();
+        const hacer = ensureArr(block.hacer ?? block.pasos).filter(h => hasUsefulContent(h)).slice(0,4);
+        if (!cond && !hacer.length) return '';
+        const label = cond ? (/^si\b/i.test(cond) ? cond : `Si ${cond}`) : '';
+        return `<div class="decision-card">
+  ${label ? `<div class="decision-cond">${esc(label)}:</div>` : ''}
+  ${hacer.length ? `<ul class="decision-hacer">${hacer.map(h=>`<li>${esc(flat(h))}</li>`).join('')}</ul>` : ''}
+</div>`;
+      }).filter(Boolean);
+      // string-array fallback
+      const useful = !cards.length ? ds.filter(s => hasUsefulContent(s) && typeof s === 'string') : [];
+      if (cards.length) html += cards.join('');
+      else if (useful.length) html += `<ul class="field-bullets">${useful.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`;
+    }
+    if (du.length) {
+      const duHtml = renderDescartar(fid, du);
+      if (duHtml) html += `<div class="descarta-block"><div class="descarta-label">🔴 Descarta primero</div>${duHtml}</div>`;
+    }
+    if (html) parts.push(fieldBlock('📋', 'Procedimiento a seguir', html));
   }
 
-  // CÁLCULO RÁPIDO (closed)
-  const calc = filterUseful(f.calculo_rapido);
-  if (calc.length) parts.push(accordionSection('🧮 Cálculo rápido',
-    `<div class="sop-calc-list">${calc.map(c=>`<code>${esc(flat(c))}</code>`).join('')}</div>`,
-    { id:`${fid}-calculo` }));
-
-  // CAUSA RAÍZ (closed)
-  const crp = filterUseful(f.causa_raiz_probable);
-  if (crp.length) parts.push(accordionSection('🔍 Causa raíz probable',
-    `<ul>${crp.map(c=>`<li>${esc(flat(c))}</li>`).join('')}</ul>`, { id:`${fid}-causa` }));
-
-  // SOLUCIÓN PALIATIVA (closed)
-  const sp = filterUseful(f.solucion_paliativa);
-  if (sp.length) parts.push(accordionSection('🩹 Solución paliativa',
-    `<ul>${sp.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`, { id:`${fid}-pal` }));
-
-  // SOLUCIÓN DEFINITIVA (closed)
-  const sd = filterUseful(f.solucion_definitiva);
-  if (sd.length) parts.push(accordionSection('✅ Solución definitiva',
-    `<ul>${sd.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`, { id:`${fid}-def` }));
-
-  // POR QUÉ PUEDE RECURRIR (closed)
-  const pqr = filterUseful(f.por_que_recurre);
-  if (pqr.length) parts.push(accordionSection('🔁 Por qué puede recurrir',
-    `<ul>${pqr.map(p=>`<li>${esc(flat(p))}</li>`).join('')}</ul>`, { id:`${fid}-recurre` }));
-
-  // CONSTRUCCIÓN (closed)
-  const con = filterUseful(f.construccion);
-  if (con.length) parts.push(accordionSection('🏗 Construcción: qué cambia el diagnóstico',
-    `<ul>${con.map(c=>`<li>${esc(flat(c))}</li>`).join('')}</ul>`, { id:`${fid}-const` }));
-
-  // QUÉ NO HACER (closed)
-  const qnh = filterUseful(f.que_no_hacer);
-  if (qnh.length) parts.push(accordionSection('🚫 Qué NO hacer',
-    `<ul class="sop-no-hacer">${qnh.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`,
-    { id:`${fid}-nohacer` }));
-
-  // SEGUIMIENTO (closed)
-  const seg = filterUseful(f.seguimiento);
-  if (seg.length) {
-    const hasObjsSeg = seg.some(s => typeof s==='object'&&s.tiempo);
-    const segH = seg.map(s => {
-      if (typeof s==='object'&&s.tiempo)
-        return `<div class="sop-seg-item"><strong>${esc(s.tiempo)}</strong>${s.notas?.length?`<ul>${s.notas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>`:''}</div>`;
-      return `<li>${esc(flat(s))}</li>`;
-    }).join('');
-    parts.push(accordionSection('📅 Seguimiento', hasObjsSeg?`<div>${segH}</div>`:`<ul>${segH}</ul>`, { id:`${fid}-seg` }));
+  // ─ BLOCK 3: COMPROBACIONES Y MEDICIONES ─
+  {
+    const cr = ensureArr(f.comprobaciones_rapidas);
+    const pm = ensureArr(f.parametros).filter(p => p && typeof p === 'object' && p.parametro);
+    let html = '';
+    if (cr.length) {
+      const hasObjsCR = cr.some(x => x && typeof x === 'object' && x.accion);
+      if (hasObjsCR) {
+        const rows = cr.slice(0,6).map(item => {
+          if (item && typeof item === 'object' && item.accion) {
+            return `<tr>
+  <td>${esc(String(item.orden??''))}</td>
+  <td>${item.bloque?`<span class="check-bloque">${esc(item.bloque)}</span> `:''}${esc(item.accion)}</td>
+</tr>`;
+          }
+          return '';
+        }).filter(Boolean).join('');
+        if (rows) html += `<table class="check-table">
+  <thead><tr><th>#</th><th>Comprobación</th></tr></thead>
+  <tbody>${rows}</tbody>
+</table>`;
+      } else {
+        const useful = filterUseful(cr);
+        if (useful.length) html += `<ul class="field-bullets">${useful.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`;
+      }
+    }
+    if (pm.length) {
+      html += renderParametros(pm);
+    }
+    if (html) parts.push(fieldBlock('🔎', 'Comprobaciones y mediciones', html));
   }
 
-  // CERRAR BAÑO (closed)
-  const cb = filterUseful(f.cuando_cerrar_bano);
-  if (cb.length) parts.push(accordionSection('🚿 Cuándo cerrar baño',
-    `<ul>${cb.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`,
-    { id:`${fid}-bano`, extraClass:'sop-acc-cerrar' }));
+  // ─ BLOCK 4: CONSTRUCCIÓN / SEGURIDAD ─
+  {
+    const con = filterUseful(f.construccion);
+    const cb  = filterUseful(f.cuando_cerrar_bano);
+    const pe  = filterUseful(f.cuando_parar_equipo);
+    const qnh = filterUseful(f.que_no_hacer);
+    let html = '';
+    if (con.length) html += `<ul class="field-bullets">${con.map(c=>`<li>${esc(flat(c))}</li>`).join('')}</ul>`;
+    if (cb.length)  html += `<div class="seg-alert seg-cerrar"><span class="seg-label">🚿 Cerrar baño si:</span><ul class="field-bullets">${cb.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul></div>`;
+    if (pe.length)  html += `<div class="seg-alert seg-parar"><span class="seg-label">⛔ Parar equipo si:</span><ul class="field-bullets">${pe.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul></div>`;
+    if (qnh.length) html += `<div class="seg-nohacer"><span class="seg-label">🚫 NO hacer:</span><ul class="sop-no-hacer">${qnh.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul></div>`;
+    if (html) parts.push(fieldBlock('🏗', 'Construcción / Seguridad', html));
+  }
 
-  // PARAR EQUIPO (closed)
-  const pe = filterUseful(f.cuando_parar_equipo);
-  if (pe.length) parts.push(accordionSection('⛔ Cuándo parar equipo',
-    `<ul>${pe.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`,
-    { id:`${fid}-equipo`, extraClass:'sop-acc-parar' }));
+  // ─ BLOCK 5: CLIENTE / PARTE ─
+  {
+    const cli = filterUseful(f.cliente);
+    const pt  = filterUseful(f.parte);
+    let html = '';
+    if (cli.length) html += `<div class="cliente-block"><span class="cliente-label">💬 Qué decir:</span>${cli.map(c=>`<p class="cliente-text">"${esc(flat(c))}"</p>`).join('')}</div>`;
+    if (pt.length)  html += `<div class="parte-block"><span class="parte-label">📋 Parte:</span><ul class="field-bullets">${pt.map(p=>`<li>${esc(flat(p))}</li>`).join('')}</ul></div>`;
+    if (html) parts.push(fieldBlock('👤', 'Cliente / Parte', html));
+  }
 
-  // CUÁNDO DERIVAR (closed)
-  const wd = filterUseful(f.cuando_derivar);
-  if (wd.length) parts.push(accordionSection('📞 Cuándo derivar',
-    `<ul>${wd.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`, { id:`${fid}-derivar` }));
-
-  // ÁRBOL link
+  // ─ ÁRBOL link ─
   if (f.arbol_relacionado) parts.push(
     `<button class="d-tree-link" data-tree-id="${esc(f.arbol_relacionado)}">🌳 Ver árbol de decisión relacionado</button>`);
 
-  // CLIENTE (closed)
-  const cli = filterUseful(f.cliente);
-  if (cli.length) parts.push(accordionSection('💬 Qué decir al cliente',
-    `<div class="sop-cliente">${cli.map(c=>`<p>"${esc(flat(c))}"</p>`).join('')}</div>`,
-    { id:`${fid}-cliente` }));
+  // ─ TECHNICAL ACCORDION ─
+  {
+    const techParts = [];
 
-  // PARTE DE TRABAJO (closed)
-  const pt = filterUseful(f.parte);
-  if (pt.length) parts.push(accordionSection('📋 Parte de trabajo',
-    `<ul class="sop-parte">${pt.map(p=>`<li>${esc(flat(p))}</li>`).join('')}</ul>`,
-    { id:`${fid}-parte` }));
-
-  // FUENTES + VALIDACIÓN (closed, combined)
-  const fue = filterUseful(f.fuentes);
-  const rv  = filterUseful(f.requiere_validacion_fuente);
-  const hayVal = rv.length||hasUsefulContent(f.nota_precision)||hasUsefulContent(f.nivel_confianza);
-  if (fue.length||hayVal) {
-    let fHtml = '';
-    if (fue.length) fHtml += `<div class="sop-fuentes">${fue.map(fu => {
-      if (typeof fu==='object'&&fu.nombre)
-        return `<div class="sop-fuente-item"><span class="sop-fuente-tipo">${esc(fu.tipo||'fuente')}</span><strong>${esc(fu.nombre)}</strong>${fu.uso?`<span class="sop-fuente-uso"> — ${esc(fu.uso)}</span>`:''}</div>`;
-      return `<div class="sop-fuente-item">${esc(flat(fu))}</div>`;
-    }).join('')}</div>`;
-    if (hayVal) {
-      fHtml += '<div class="sop-validacion">';
-      if (hasUsefulContent(f.nivel_confianza)) fHtml += `<p><strong>Confianza:</strong> ${esc(flat(f.nivel_confianza))}</p>`;
-      if (hasUsefulContent(f.nota_precision))  fHtml += `<p class="sop-nota-prec">${esc(flat(f.nota_precision))}</p>`;
-      if (rv.length) fHtml += `<ul>${rv.map(v=>`<li>${esc(flat(v))}</li>`).join('')}</ul>`;
-      fHtml += '</div>';
+    const proto = filterUseful(f.protocolo);
+    if (proto.length) {
+      const steps = proto.map(p=>{const t=flat(p).replace(/^\d+[\.\)]\s*/,'').trim();return t?`<li>${esc(t)}</li>`:''}).filter(Boolean).join('');
+      if (steps) techParts.push(techSection('🔧 Protocolo paso a paso', `<ol class="sop-steps">${steps}</ol>`));
     }
-    parts.push(accordionSection('📚 Fuentes y validación', fHtml, { id:`${fid}-fuentes` }));
+
+    const calc = filterUseful(f.calculo_rapido);
+    if (calc.length) techParts.push(techSection('🧮 Cálculo rápido',
+      `<div class="sop-calc-list">${calc.map(c=>`<code>${esc(flat(c))}</code>`).join('')}</div>`));
+
+    const crp = filterUseful(f.causa_raiz_probable);
+    if (crp.length) techParts.push(techSection('🔍 Causa raíz probable',
+      `<ul class="field-bullets">${crp.map(c=>`<li>${esc(flat(c))}</li>`).join('')}</ul>`));
+
+    const sp = filterUseful(f.solucion_paliativa);
+    if (sp.length) techParts.push(techSection('🩹 Solución paliativa',
+      `<ul class="field-bullets">${sp.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`));
+
+    const sd = filterUseful(f.solucion_definitiva);
+    if (sd.length) techParts.push(techSection('✅ Solución definitiva',
+      `<ul class="field-bullets">${sd.map(s=>`<li>${esc(flat(s))}</li>`).join('')}</ul>`));
+
+    const pqr = filterUseful(f.por_que_recurre);
+    if (pqr.length) techParts.push(techSection('🔁 Por qué puede recurrir',
+      `<ul class="field-bullets">${pqr.map(p=>`<li>${esc(flat(p))}</li>`).join('')}</ul>`));
+
+    const seg = filterUseful(f.seguimiento);
+    if (seg.length) {
+      const hasObjsSeg = seg.some(s => typeof s==='object'&&s.tiempo);
+      const segH = seg.map(s => {
+        if (typeof s==='object'&&s.tiempo)
+          return `<div class="sop-seg-item"><strong>${esc(s.tiempo)}</strong>${s.notas?.length?`<ul>${s.notas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>`:''}</div>`;
+        return `<li>${esc(flat(s))}</li>`;
+      }).join('');
+      techParts.push(techSection('📅 Seguimiento', hasObjsSeg?`<div>${segH}</div>`:`<ul class="field-bullets">${segH}</ul>`));
+    }
+
+    const wd = filterUseful(f.cuando_derivar);
+    if (wd.length) techParts.push(techSection('📞 Cuándo derivar',
+      `<ul class="field-bullets">${wd.map(x=>`<li>${esc(flat(x))}</li>`).join('')}</ul>`));
+
+    const fue = filterUseful(f.fuentes);
+    const rv  = filterUseful(f.requiere_validacion_fuente);
+    const hayVal = rv.length||hasUsefulContent(f.nota_precision)||hasUsefulContent(f.nivel_confianza);
+    if (fue.length||hayVal) {
+      let fHtml = '';
+      if (fue.length) fHtml += `<div class="sop-fuentes">${fue.map(fu => {
+        if (typeof fu==='object'&&fu.nombre)
+          return `<div class="sop-fuente-item"><span class="sop-fuente-tipo">${esc(fu.tipo||'fuente')}</span><strong>${esc(fu.nombre)}</strong>${fu.uso?`<span class="sop-fuente-uso"> — ${esc(fu.uso)}</span>`:''}</div>`;
+        return `<div class="sop-fuente-item">${esc(flat(fu))}</div>`;
+      }).join('')}</div>`;
+      if (hayVal) {
+        fHtml += '<div class="sop-validacion">';
+        if (hasUsefulContent(f.nivel_confianza)) fHtml += `<p><strong>Confianza:</strong> ${esc(flat(f.nivel_confianza))}</p>`;
+        if (hasUsefulContent(f.nota_precision))  fHtml += `<p class="sop-nota-prec">${esc(flat(f.nota_precision))}</p>`;
+        if (rv.length) fHtml += `<ul>${rv.map(v=>`<li>${esc(flat(v))}</li>`).join('')}</ul>`;
+        fHtml += '</div>';
+      }
+      techParts.push(techSection('📚 Fuentes y validación', fHtml));
+    }
+
+    if (techParts.length) {
+      parts.push(`<details class="technical-accordion">
+  <summary class="technical-accordion-summary">Ver explicación técnica detallada</summary>
+  <div class="tech-accordion-body">${techParts.join('\n')}</div>
+</details>`);
+    }
   }
 
   return parts.filter(Boolean).join('\n');
