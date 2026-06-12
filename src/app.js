@@ -304,17 +304,19 @@ window.openAccordion = function(id) {
 };
 
 // ── SOP Toggle (interactive Sí/No for descartar_urgente in V2 drawers) ───────
+// Uses classList.toggle('visible') — NOT the hidden attribute — because CSS
+// display values override [hidden]. Only one answer shows at a time.
 window.sopToggle = function(qId, answer) {
   const si    = document.getElementById(qId + '-si');
   const no    = document.getElementById(qId + '-no');
   const block = document.getElementById(qId);
   if (!si || !no || !block) return;
-  si.hidden = answer !== 'si';
-  no.hidden = answer !== 'no';
+  si.classList.toggle('visible', answer === 'si');
+  no.classList.toggle('visible', answer === 'no');
   block.querySelectorAll('.btn-si, .btn-no').forEach(b => {
-    const isActive = b.classList.contains('btn-' + answer);
-    b.classList.toggle('active', isActive);
-    b.setAttribute('aria-pressed', String(isActive));
+    const active = b.classList.contains('btn-' + answer);
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-pressed', String(active));
   });
 };
 
