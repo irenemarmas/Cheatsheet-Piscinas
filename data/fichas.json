@@ -1,0 +1,2260 @@
+[
+  {
+    "id": "agua_verde",
+    "titulo": "Agua verde",
+    "categoria": "agua",
+    "prioridad": "critica",
+    "destacado": true,
+    "sintomas": [
+      "Agua verde",
+      "No se ve fondo",
+      "Riesgo seguridad"
+    ],
+    "palabras_clave": [
+      "verde",
+      "algas"
+    ],
+    "sinonimos": [
+      "se pone verde",
+      "agua fea"
+    ],
+    "problema_explicado": "Agua verde por algas vivas. Fondo NO visible = RIESGO CRÍTICO. Causa: cloro bajo, pH alto, cianúrico bloqueado o filtración pobre.",
+    "causas": [
+      "pH alto (>7,6)",
+      "Cloro bajo",
+      "Cianúrico alto (>100)",
+      "Filtro sucio",
+      "Mala circulación",
+      "Carga orgánica alta"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "pH",
+        "7,2–7,6",
+        "Si >7,6: baja"
+      ],
+      [
+        "Cloro libre",
+        "1–3 mg/L",
+        "Si bajo: dosifica"
+      ],
+      [
+        "Cianúrico",
+        "30–50",
+        "Si >100: renovación agua"
+      ]
+    ],
+    "interpretacion_resultados": "Fondo no visible = CIERRA BAÑO (CRÍTICO). pH >7,6 = bájalo PRIMERO.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Fondo no visible → CIERRA BAÑO"
+      ],
+      [
+        "2",
+        "Presión >0,5 → LAVA filtro"
+      ],
+      [
+        "3",
+        "pH >7,6 → Baja pH (mitad ahora, mitad 4h)"
+      ],
+      [
+        "4",
+        "Cianúrico >100 → Renovación agua 20–30%"
+      ],
+      [
+        "5",
+        "Choque cloro"
+      ],
+      [
+        "6",
+        "Filtra 24h"
+      ]
+    ],
+    "que_no_hacer": [
+      "No mezcles cloro",
+      "No ignores fondo no visible"
+    ],
+    "calculo_producto": "CHOQUE: (Vol÷10)×Dosis",
+    "checklist": "✓ Fondo no visible | ✓ Baño cerrado | ✓ pH medido | ✓ Filtro lavado | ✓ Choque aplicado | ✓ Filtra 24h | ✓ Fondo visible a 48h",
+    "construccion": "HORMIGÓN: Algas enraizadas. LINER: Liso, menos algas. ANTIGUO: Recuperación lenta. SKIMMER ÚNICO: Zona muerta.",
+    "cuando_derivar": [
+      "Si persiste >72h"
+    ],
+    "cuando_cerrar_bano": [
+      "SIEMPRE si no ves fondo"
+    ],
+    "cliente": "Agua verde por falta de cloro. pH está fuera de rango. Hemos cerrado por seguridad. Tratamiento fuerte en 24–48h.",
+    "parte": "Problema: Agua verde. Baño: CERRADO. pH: __. Cloro: __. Acciones: Lavado, Choque cloro. Estado 48h: [clara/turbia].",
+    "modulo_relacionado": "M1, M3",
+    "fuentes": [
+      "RD 742/2013"
+    ],
+    "arbol_relacionado": "agua_verde"
+  },
+  {
+    "id": "agua_turbia",
+    "titulo": "Agua turbia",
+    "categoria": "agua",
+    "prioridad": "alta",
+    "destacado": true,
+    "sintomas": [
+      "Agua opaca",
+      "Partículas suspensión",
+      "Agua nublada"
+    ],
+    "palabras_clave": [
+      "turbia",
+      "opaca"
+    ],
+    "sinonimos": [
+      "agua sucia",
+      "agua fea"
+    ],
+    "problema_explicado": "Agua no transparente. Causa: filtración insuficiente, pH/dureza altos, carga sólida o junta araña rota.",
+    "causas": [
+      "Filtro sucio",
+      "pH alto",
+      "Dureza alta",
+      "Junta araña rota",
+      "Carga sólida alta"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Presión filtro",
+        "0,2–0,4",
+        "Si >0,5: lava"
+      ],
+      [
+        "pH",
+        "7,2–7,6",
+        "Si >7,6: baja"
+      ]
+    ],
+    "interpretacion_resultados": "Presión alta + caudal bajo = filtro sucio, lava.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Presión >0,5 → LAVA filtro"
+      ],
+      [
+        "2",
+        "Presión normal → Filtra 24h"
+      ],
+      [
+        "3",
+        "A 12h → debe mejorar"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Floculante: (Vol÷100)×Dosis",
+    "checklist": "✓ Presión medida | ✓ Filtro lavado | ✓ Filtra 24h | ✓ Clara a 24h",
+    "construccion": "FILTRO PEQUEÑO: Presión sube frecuente.",
+    "cuando_derivar": [
+      "Si junta araña sospechada"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Filtro cansado o pH alto. Lavamos filtro y filtramos 24h. Mejorará en 12–24h.",
+    "parte": "Problema: Agua turbia. Presión: __. pH: __. Acciones: Lavado filtro. Estado: [turbia/clara].",
+    "modulo_relacionado": "M5, M7",
+    "fuentes": [],
+    "arbol_relacionado": "agua_turbia"
+  },
+  {
+    "id": "agua_lechosa",
+    "titulo": "Agua blanca o lechosa",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Agua blanca",
+      "Aspecto lechoso",
+      "Precipitación mineral"
+    ],
+    "palabras_clave": [
+      "lechosa",
+      "blanca"
+    ],
+    "sinonimos": [
+      "agua blanca",
+      "agua con cal"
+    ],
+    "problema_explicado": "Agua lechosa. Causa: precipitación cal (dureza + pH altos) o floculante.",
+    "causas": [
+      "Dureza muy alta + pH alto",
+      "Exceso floculante",
+      "Agua relleno muy dura"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "pH",
+        "7,2–7,6",
+        "Si >7,8: baja"
+      ],
+      [
+        "Dureza",
+        "200–400",
+        "Si >500: renovación"
+      ]
+    ],
+    "interpretacion_resultados": "pH >7,8 + dureza >400 = baja pH primero.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "pH >7,8 → Baja pH"
+      ],
+      [
+        "2",
+        "Dureza >400 → Renovación 20–30%"
+      ],
+      [
+        "3",
+        "Filtra + floculante"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Reductor pH: (Vol÷100)×Dosis",
+    "checklist": "✓ pH medido | ✓ Dureza medida | ✓ Reductor pH | ✓ Mejorada",
+    "construccion": "AGUA RELLENO DURA: Pozo profundo.",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Demasiada cal o residuos. Bajamos pH y usamos floculante. Mejorará en 24–48h.",
+    "parte": "Problema: Agua lechosa. Dureza: __. pH: __. Acciones: Reductor pH. Estado: [lechosa/clara].",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  },
+  {
+    "id": "olor_cloro",
+    "titulo": "Olor fuerte a cloro",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Olor asfixiante",
+      "Irritación nariz",
+      "Gas cloro fuerte"
+    ],
+    "palabras_clave": [
+      "olor",
+      "gas"
+    ],
+    "sinonimos": [
+      "huele raro",
+      "olor químico"
+    ],
+    "problema_explicado": "Olor fuerte ≠ cloro alto. Es cloro combinado (cloro gastado reaccionado con suciedad).",
+    "causas": [
+      "Demanda orgánica alta",
+      "Cloro combinado >0,5",
+      "Ventilación pobre"
+    ],
+    "parametros": [
+      [
+        "Test",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Cloro libre",
+        "1–3",
+        "OK"
+      ],
+      [
+        "Cloro combinado",
+        "<0,5",
+        "Si >0,5: choque"
+      ]
+    ],
+    "interpretacion_resultados": "Cloro libre bajo + combinado alto = demanda alta, choque cloro.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide cloro combinado"
+      ],
+      [
+        "2",
+        "Si >0,5 → CHOQUE cloro"
+      ],
+      [
+        "3",
+        "A 6h: olor se va"
+      ]
+    ],
+    "que_no_hacer": [
+      "No bajes cloro"
+    ],
+    "calculo_producto": "CHOQUE: (Vol÷10)×Dosis",
+    "checklist": "✓ Cloro combinado medido | ✓ Choque aplicado | ✓ Ventilación | ✓ Olor reducido",
+    "construccion": "SALA SIN VENTILACIÓN: Aroma acumulado.",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Olor fuerte es por cloro gastado, no exceso. Aplicamos choque y desaparece.",
+    "parte": "Problema: Olor cloro. Cloro combinado: __. Acciones: Choque. Olor: [fuerte/tolerable].",
+    "modulo_relacionado": "M10",
+    "fuentes": []
+  },
+  {
+    "id": "cloro_no_aguanta",
+    "titulo": "Cloro no aguanta (desaparece rápido)",
+    "categoria": "agua",
+    "prioridad": "alta",
+    "destacado": true,
+    "sintomas": [
+      "Cloro cae en horas",
+      "No dura 24h",
+      "Dosificar constantemente"
+    ],
+    "palabras_clave": [
+      "desaparece",
+      "se va"
+    ],
+    "sinonimos": [
+      "cloro se va",
+      "no aguanta el cloro"
+    ],
+    "problema_explicado": "Cloro desaparece por demanda orgánica alta, cianúrico bloqueado o pH alto.",
+    "causas": [
+      "Demanda orgánica alta",
+      "Cianúrico >100",
+      "pH alto"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Cianúrico",
+        "30–50",
+        "Si >100: renovación agua"
+      ]
+    ],
+    "interpretacion_resultados": "Cianúrico >100 = única solución es renovación agua.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide cianúrico"
+      ],
+      [
+        "2",
+        "Si >100 → renovación 20–30%"
+      ],
+      [
+        "3",
+        "Si <20 → estabilizante"
+      ],
+      [
+        "4",
+        "A 24h: cloro debe durar 3–5 días"
+      ]
+    ],
+    "que_no_hacer": [
+      "No dosifiques indefinidamente"
+    ],
+    "calculo_producto": "Renovación agua o estabilizante",
+    "checklist": "✓ Cianúrico medido | ✓ Tratamiento | ✓ Cloro dura >3 días",
+    "construccion": "MUCHO SOL: Cianúrico crítico.",
+    "cuando_derivar": [
+      "Si >2 semanas"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Cloro se consume porque hay mucha suciedad o está bloqueado. Corregimos. Durará más.",
+    "parte": "Problema: Cloro no aguanta. Cianúrico: __. Velocidad: __. Acciones: [Renovación/Estabilizante].",
+    "modulo_relacionado": "M10",
+    "fuentes": [],
+    "arbol_relacionado": "cloro_no_aguanta"
+  },
+  {
+    "id": "ph_alto",
+    "titulo": "pH alto (>7,6)",
+    "categoria": "agua",
+    "prioridad": "alta",
+    "destacado": true,
+    "sintomas": [
+      "pH >7,6",
+      "Cloro no funciona",
+      "Agua lechosa"
+    ],
+    "palabras_clave": [
+      "pH alto"
+    ],
+    "sinonimos": [
+      "pH subido"
+    ],
+    "problema_explicado": "pH alto reduce 50%+ eficacia cloro. Favorece precipitación cal.",
+    "causas": [
+      "Alcalinidad >120",
+      "Salino sube pH natural",
+      "Agua relleno alcalina"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Alcalinidad",
+        "80–120",
+        "Si >120: corrige PRIMERO"
+      ],
+      [
+        "pH",
+        "7,2–7,6",
+        "Si >7,6: baja"
+      ]
+    ],
+    "interpretacion_resultados": "Alcalinidad >120 = pH 'amortiguado'. Bajar alcalinidad primero.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide alcalinidad"
+      ],
+      [
+        "2",
+        "Si >120 → corrector alcalinidad"
+      ],
+      [
+        "3",
+        "Espera 4h"
+      ],
+      [
+        "4",
+        "Si pH aún >7,6 → reductor pH (MITAD)"
+      ],
+      [
+        "5",
+        "Espera 4h → SEGUNDA MITAD"
+      ]
+    ],
+    "que_no_hacer": [
+      "No bajes de golpe"
+    ],
+    "calculo_producto": "Reductor pH (mitad+mitad a 4h)",
+    "checklist": "✓ Alcalinidad medida | ✓ Corrector alcalinidad | ✓ Reductor pH (1ª mitad) | ✓ Reductor pH (2ª mitad) | ✓ pH en rango",
+    "construccion": "SALINO: Suben pH 15–20/mes (normal).",
+    "cuando_derivar": [
+      "Si no baja x2"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "pH muy alto hace cloro inútil. Bajamos lentamente. Cloro trabajará mucho mejor.",
+    "parte": "Problema: pH alto. pH: __. Alcalinidad: __. Acciones: Corrector, Reductor (mitad/mitad).",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  },
+  {
+    "id": "ph_bajo",
+    "titulo": "pH bajo (<7,2)",
+    "categoria": "agua",
+    "prioridad": "alta",
+    "destacado": true,
+    "sintomas": [
+      "pH <7,2",
+      "Agua irritante",
+      "Corrosión tuberías"
+    ],
+    "palabras_clave": [
+      "pH bajo"
+    ],
+    "sinonimos": [
+      "pH ácido"
+    ],
+    "problema_explicado": "pH bajo = agua ácida, irritante. Favorece corrosión. REQUIERE CORRECCIÓN RÁPIDA.",
+    "causas": [
+      "Agua relleno ácida",
+      "Sobre-dosificación reductor previo"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "pH",
+        "7,2–7,6",
+        "Si <7,0: SUBE rápido"
+      ],
+      [
+        "Alcalinidad",
+        "80–120",
+        "Si <80: sube PRIMERO"
+      ]
+    ],
+    "interpretacion_resultados": "pH <7,0 = CRÍTICO. Sube inmediatamente.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "pH <7,0 → SUBE pH RÁPIDO"
+      ],
+      [
+        "2",
+        "Si alcalinidad <80 → sube alcalinidad primero"
+      ],
+      [
+        "3",
+        "A 2h: pH debe subir 0,2–0,3"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Elevador pH: (Vol÷100)×Dosis",
+    "checklist": "✓ pH medido (CRÍTICO) | ✓ Alcalinidad medida | ✓ Elevador pH añadido | ✓ Filtra 4h | ✓ pH en rango",
+    "construccion": "AGUA RELLENO ÁCIDA: Vigilancia permanente.",
+    "cuando_derivar": [
+      "Si no sube x2"
+    ],
+    "cuando_cerrar_bano": [
+      "Evitar sumergir cabeza"
+    ],
+    "cliente": "pH muy bajo, agua irritante y daña tuberías. Subimos lentamente. En 4–8h menos irritante.",
+    "parte": "Problema: pH bajo. pH: __ (CRÍTICO). Alcalinidad: __. Acciones: Elevador pH.",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  },
+  {
+    "id": "alcalinidad_baja",
+    "titulo": "Alcalinidad baja (<80)",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "pH inestable",
+      "pH sube/baja rápido"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Alcalinidad = 'colchón' del pH. Si baja, pH muy inestable. AUMENTAR ALCALINIDAD.",
+    "causas": [
+      "Consumo natural",
+      "Agua relleno baja"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Alcalinidad",
+        "80–120",
+        "Si <80: sube"
+      ]
+    ],
+    "interpretacion_resultados": "<80 = sube alcalinidad primero.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide alcalinidad"
+      ],
+      [
+        "2",
+        "Si <80 → elevador alcalinidad"
+      ],
+      [
+        "3",
+        "Espera 4h → alcalinidad debe subir"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Elevador alcalinidad: (Vol÷100)×Dosis",
+    "checklist": "✓ Alcalinidad medida | ✓ Elevador añadido | ✓ Filtra 4h | ✓ pH estable",
+    "construccion": "",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [],
+    "cliente": "Alcalinidad baja hace pH inestable. Subimos y el pH se estabiliza automáticamente.",
+    "parte": "Problema: Alcalinidad baja. VALOR: __. Elevador: __. Valor final: __.",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  },
+  {
+    "id": "alcalinidad_alta",
+    "titulo": "Alcalinidad alta (>120)",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "pH difícil de bajar",
+      "Agua lechosa",
+      "Depósitos blancos"
+    ],
+    "palabras_clave": [
+      "cal"
+    ],
+    "sinonimos": [],
+    "problema_explicado": "Alcalinidad alta = 'colchón' amortiguador muy fuerte. pH 'pegado' arriba. BAJAR ALCALINIDAD PRIMERO.",
+    "causas": [
+      "Agua relleno alcalina",
+      "Sin renovación agua"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Alcalinidad",
+        "80–120",
+        "Si >120: baja"
+      ]
+    ],
+    "interpretacion_resultados": ">120 + pH alto = bajar alcalinidad primero.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide alcalinidad y pH"
+      ],
+      [
+        "2",
+        "Si >120 → corrector alcalinidad"
+      ],
+      [
+        "3",
+        "Espera 4h"
+      ]
+    ],
+    "que_no_hacer": [
+      "No intentes bajar pH si >120"
+    ],
+    "calculo_producto": "Corrector: (Vol÷100)×Dosis",
+    "checklist": "✓ Alcalinidad medida | ✓ Corrector añadido | ✓ Filtra 4h | ✓ Alcalinidad bajó | ✓ pH después",
+    "construccion": "AGUA RELLENO ALCALINA: Pozo profundo.",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [],
+    "cliente": "Alcalinidad muy alta, pH pegado arriba. Bajamos alcalinidad primero, pH se corrige fácilmente.",
+    "parte": "Problema: Alcalinidad alta. VALOR: __. Corrector: __. Valor final: __.",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  },
+  {
+    "id": "cianurico_alto",
+    "titulo": "Cianúrico alto (>100)",
+    "categoria": "agua",
+    "prioridad": "alta",
+    "destacado": true,
+    "sintomas": [
+      "Cloro no desinfecta",
+      "Cloro bajo pero 'bloqueado'"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Cianúrico es estabilizante. Si >100, cloro BLOQUEADO (poco disponible). ÚNICA SOLUCIÓN: renovación agua.",
+    "causas": [
+      "Acumulación cianúrico sin renovación"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Cianúrico",
+        "30–50",
+        "Si >100: ÚNICA = renovación agua"
+      ]
+    ],
+    "interpretacion_resultados": ">100 = cloro bloqueado. Renovación agua 20–30%.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide cianúrico. Si >100 → única es renovación"
+      ],
+      [
+        "2",
+        "Renovar agua 20–30%"
+      ],
+      [
+        "3",
+        "Cianúrico baja a rango"
+      ],
+      [
+        "4",
+        "Cloro funciona"
+      ]
+    ],
+    "que_no_hacer": [
+      "No intentes bajar con químicos"
+    ],
+    "calculo_producto": "Renovación agua 20–30%.",
+    "checklist": "✓ Cianúrico medido | ✓ Renovación realizada | ✓ Cianúrico medido nuevamente | ✓ Cloro funciona",
+    "construccion": "MUCHO SOL: Cianúrico necesario (balance crítico).",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [],
+    "cliente": "Estabilizante en exceso bloquea cloro. Única solución es cambiar parte del agua.",
+    "parte": "Problema: Cianúrico alto. VALOR: __. Renovación agua: 20–30%. Valor final: __.",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  },
+  {
+    "id": "bomba_no_aspira",
+    "titulo": "Bomba no aspira",
+    "categoria": "bomba",
+    "prioridad": "critica",
+    "destacado": true,
+    "sintomas": [
+      "Motor gira, sin caudal",
+      "Burbujas en prefiltro",
+      "Sin agua boquillas"
+    ],
+    "palabras_clave": [
+      "aspira"
+    ],
+    "sinonimos": [
+      "bomba no chupa",
+      "bomba no tira"
+    ],
+    "problema_explicado": "Motor gira pero SIN caudal. CAUSA 99%: bomba DESCEBADA (prefiltro sin agua) o aire en aspiración. CRÍTICO: sin agua daña bomba en minutos.",
+    "causas": [
+      "Bomba descebada",
+      "Nivel bajo",
+      "Junta dañada",
+      "Aire en tuberías",
+      "Válvula cerrada",
+      "Cestillo obstruido"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Si SÍ..."
+      ],
+      [
+        "¿Motor gira?",
+        "Continúa"
+      ],
+      [
+        "¿Agua en prefiltro?",
+        "NO=descebado"
+      ],
+      [
+        "¿Burbujas?",
+        "SÍ=aire entra"
+      ],
+      [
+        "¿Nivel cubre skimmer?",
+        "NO=sube"
+      ]
+    ],
+    "interpretacion_resultados": "Sin agua prefiltro = descebado inmediato.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN INMEDIATA"
+      ],
+      [
+        "1",
+        "PARA motor YA"
+      ],
+      [
+        "2",
+        "Sube nivel 5 cm sobre skimmer"
+      ],
+      [
+        "3",
+        "Abre tapa prefiltro → ¿hay agua? NO=llena con cubeta"
+      ],
+      [
+        "4",
+        "Revisa/engrasa junta"
+      ],
+      [
+        "5",
+        "Limpia cestillos"
+      ],
+      [
+        "6",
+        "Revisa válvulas (ABIERTAS)"
+      ],
+      [
+        "7",
+        "Cierra tapa, aprieta bien"
+      ],
+      [
+        "8",
+        "Arranca → caudal+sin burbujas+presión 0,3–0,5"
+      ]
+    ],
+    "que_no_hacer": [
+      "No dejes sin agua (DAÑA)"
+    ],
+    "calculo_producto": "Cebado manual: llenar prefiltro hasta BORDE.",
+    "checklist": "✓ Motor parado | ✓ Nivel subido | ✓ Prefiltro LLENO | ✓ Junta engrasada | ✓ Cestillos limpios | ✓ Válvulas abiertas | ✓ Tapa apretada | ✓ Caudal presente",
+    "construccion": "SALA SOBRE NIVEL: Cebado difícil. TUBERÍAS LARGAS: Más puntos aire.",
+    "cuando_derivar": [
+      "Si burbujas persisten"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Bomba necesitaba agua en el prefiltro. Llenada. Puede volver si nivel baja.",
+    "parte": "Problema: Bomba sin caudal. CAUSA: [Descebado/Aire/Nivel/Junta]. ACCIONES: Cebado, Apriete, Limpieza. Caudal: [presente/ausente].",
+    "modulo_relacionado": "M6",
+    "fuentes": [],
+    "arbol_relacionado": "bomba_no_aspira"
+  },
+  {
+    "id": "bomba_desceba",
+    "titulo": "Bomba se desceba",
+    "categoria": "bomba",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Prefiltro se vacía",
+      "Bomba pierde aspiración",
+      "Caudal intermitente"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Prefiltro se vacía sin razón visible. Causa: pequeña fuga de aire, válvula defectuosa o nivel crítico.",
+    "causas": [
+      "Junta tapa prefiltro micro-fuga",
+      "Válvula aspiración defectuosa",
+      "Nivel muy justo",
+      "Entrada aire oculta"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Dónde entra aire?",
+        "Revisar junta, válvulas, racores"
+      ]
+    ],
+    "interpretacion_resultados": "Descebado recurrente = fuga aire invisible.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Llena prefiltro"
+      ],
+      [
+        "2",
+        "Observa 2h"
+      ],
+      [
+        "3",
+        "¿Se vacía? → entra aire"
+      ],
+      [
+        "4",
+        "Revisa junta tapa → reemplaza"
+      ],
+      [
+        "5",
+        "Revisa válvula aspiración → reemplaza"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Cebado | ✓ Observación 2h | ✓ Revisión junta | ✓ Revisión válvulas | ✓ Reemplazo si necesario",
+    "construccion": "TUBERÍAS VIEJAS: Micro-fugas frecuentes.",
+    "cuando_derivar": [
+      "Si persiste después de cambio junta/válvula"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Bomba pierde agua de cebado lentamente. Hay micro-escape de aire. Revisamos y reemplazamos juntas/válvulas.",
+    "parte": "Problema: Descebado recurrente. CAUSA: [Junta/Válvula/Racores]. ACCIONES: Reemplazo. Frecuencia: [mejorada/igual].",
+    "modulo_relacionado": "M6",
+    "fuentes": []
+  },
+  {
+    "id": "burbujas_impulsores",
+    "titulo": "Burbujas en impulsores",
+    "categoria": "bomba",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Sale aire por boquillas",
+      "Burbujas visibles",
+      "Caudal inconsistente"
+    ],
+    "palabras_clave": [
+      "burbujas",
+      "aire"
+    ],
+    "sinonimos": [
+      "sale aire"
+    ],
+    "problema_explicado": "Burbujas en agua impulsada = aire entra en sistema. Causa: junta prefiltro, válvula, nivel bajo o tuberías.",
+    "causas": [
+      "Junta prefiltro sucia",
+      "Válvula aspiración defectuosa",
+      "Nivel muy bajo",
+      "Entrada aire tuberías"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Burbujas constantes?",
+        "Entra aire"
+      ],
+      [
+        "¿Burbujas intermitentes?",
+        "Nivel fluctúa"
+      ]
+    ],
+    "interpretacion_resultados": "Burbujas = aire entra. Localizar fuente.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Sube nivel agua (5 cm mínimo sobre skimmer)"
+      ],
+      [
+        "2",
+        "Revisa junta tapa prefiltro"
+      ],
+      [
+        "3",
+        "Revisa válvulas"
+      ],
+      [
+        "4",
+        "Revisa racores aspiración → aprieta"
+      ],
+      [
+        "5",
+        "Caudal debe ser limpio"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Nivel subido | ✓ Junta revisada | ✓ Válvulas revisadas | ✓ Racores apretados | ✓ Burbujas desaparecidas",
+    "construccion": "",
+    "cuando_derivar": [
+      "Si burbujas persisten"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Hay aire en las tuberías de succión. Subimos nivel, limpiamos junta y apretamos racores. Debe mejorar.",
+    "parte": "Problema: Burbujas impulsores. CAUSA: [Nivel/Junta/Válvula/Racore]. ACCIONES: [Sube nivel/Limpia/Aprieta]. Burbujas: [presentes/desaparecidas].",
+    "modulo_relacionado": "M6",
+    "fuentes": []
+  },
+  {
+    "id": "manometro_alto",
+    "titulo": "Manómetro alto (>0,5 bar)",
+    "categoria": "filtro",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Presión >0,5 bar",
+      "Caudal débil",
+      "Agua turbia"
+    ],
+    "palabras_clave": [
+      "presión"
+    ],
+    "sinonimos": [
+      "chorros flojos"
+    ],
+    "problema_explicado": "Manómetro alto. Filtro muy sucio. Agua pasa con dificultad = caudal bajo. LAVAR.",
+    "causas": [
+      "Arena/diatomeas saturadas",
+      "Partículas finas acumuladas",
+      "Filtro antiguo"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Presión",
+        "0,2–0,4 bar",
+        "Si >0,5: LAVA"
+      ],
+      [
+        "Caudal",
+        "Fuerte",
+        "Si débil: filtro sucio"
+      ]
+    ],
+    "interpretacion_resultados": "Presión subió +0,3 bar = hora de lavar.",
+    "acciones": [
+      [
+        "PASO",
+        "PROTOCOLO LAVADO"
+      ],
+      [
+        "1",
+        "PARA bomba"
+      ],
+      [
+        "2",
+        "Válvula → LAVADO"
+      ],
+      [
+        "3",
+        "Arrasta 1–2 min"
+      ],
+      [
+        "4",
+        "PARA"
+      ],
+      [
+        "5",
+        "Válvula → ENJUAGUE"
+      ],
+      [
+        "6",
+        "Arrasta 30–60 seg"
+      ],
+      [
+        "7",
+        "PARA"
+      ],
+      [
+        "8",
+        "Válvula → FILTRACIÓN"
+      ],
+      [
+        "9",
+        "Arrasta → presión DEBE BAJAR"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay. Lavado mecánico.",
+    "checklist": "✓ Presión medida | ✓ LAVADO (1–2 min) | ✓ ENJUAGUE (30–60 seg) | ✓ FILTRACIÓN | ✓ Presión BAJA",
+    "construccion": "FILTRO PEQUEÑO: Presión sube frecuente.",
+    "cuando_derivar": [
+      "Si presión no baja después de lavado"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Filtro cansado. Hacemos 'lavado' invertiendo flujo. Después funciona como nuevo.",
+    "parte": "Problema: Manómetro alto. PRESIÓN INICIAL: __. LAVADO: (__min). ENJUAGUE: (__seg). PRESIÓN FINAL: __ (OK?).",
+    "modulo_relacionado": "M7",
+    "fuentes": []
+  },
+  {
+    "id": "manometro_bajo",
+    "titulo": "Manómetro bajo (<0,2 bar)",
+    "categoria": "filtro",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Presión <0,2 bar",
+      "Caudal muy fuerte",
+      "Filtración débil"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Presión muy baja. Causa: arena muy nueva/limpia, agua muy clara o elemento defectuoso.",
+    "causas": [
+      "Arena recientemente lavada",
+      "Agua muy clara",
+      "Elemento dañado",
+      "Válvula parcialmente abierta"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Presión",
+        "0,2–0,4 bar",
+        "Si <0,2: normal tras lavado"
+      ]
+    ],
+    "interpretacion_resultados": "Si <0,2 justo después lavado = NORMAL.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Si justo después lavado → NORMAL, espera 2–3 semanas"
+      ],
+      [
+        "2",
+        "Si >1 semana → revisar elemento"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Presión medida | ✓ Fecha lavado verificada | ✓ Si >1 semana: revisar elemento",
+    "construccion": "",
+    "cuando_derivar": [
+      "Si elemento dañado"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Presión baja después de lavar es normal. Arena está limpia. En 2–3 semanas subirá.",
+    "parte": "Problema: Manómetro bajo. PRESIÓN: __. Fecha lavado: __. Revisión: [normal/anomalía].",
+    "modulo_relacionado": "M7",
+    "fuentes": []
+  },
+  {
+    "id": "sale_arena",
+    "titulo": "Sale arena por boquillas",
+    "categoria": "filtro",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Arena en agua",
+      "Partículas filtro",
+      "Agua arenosa"
+    ],
+    "palabras_clave": [
+      "arena"
+    ],
+    "sinonimos": [
+      "arena dentro"
+    ],
+    "problema_explicado": "Arena sale por boquillas. Causa: elemento roto o junta araña dañada.",
+    "causas": [
+      "Elemento filtro fisura",
+      "Junta araña rota",
+      "Válvula selectora defectuosa"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Mucha arena?",
+        "Elemento fisura probable"
+      ]
+    ],
+    "interpretacion_resultados": "Arena visible = elemento o junta dañada.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Para filtración"
+      ],
+      [
+        "2",
+        "Inspecciona elemento (¿fisura?)"
+      ],
+      [
+        "3",
+        "Si fisura → reemplazo"
+      ],
+      [
+        "4",
+        "Si no → revisar junta araña"
+      ],
+      [
+        "5",
+        "Cierra → filtra"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Reemplazo elemento: (~300–1000€).",
+    "checklist": "✓ Inspección elemento | ✓ Inspección junta araña | ✓ Reemplazo si necesario | ✓ Sin arena en agua",
+    "construccion": "FILTRO ANTIGUO: Elemento desgastado.",
+    "cuando_derivar": [
+      "Si arena persiste después de cambio"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Arena escapa del filtro. Elemento o válvula dañada. Necesitamos reemplazo.",
+    "parte": "Problema: Sale arena. CAUSA: [Elemento/Junta araña]. ACCIONES: [Inspección/Reemplazo]. Sin arena: SÍ/NO.",
+    "modulo_relacionado": "M7",
+    "fuentes": []
+  },
+  {
+    "id": "limpiafondos_no_aspira",
+    "titulo": "Limpiafondos no aspira",
+    "categoria": "robot",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Robot no aspira suciedad",
+      "Caudal bajo a robot",
+      "Bolsa limpiafondos vacía"
+    ],
+    "palabras_clave": [
+      "robot"
+    ],
+    "sinonimos": [
+      "robot no limpia",
+      "limpiafondos no tira"
+    ],
+    "problema_explicado": "Limpiafondos no aspira. Causa: caudal bajo (filtro sucio), válvula selectora incorrecta o tuberías obstruidas.",
+    "causas": [
+      "Filtro sucio",
+      "Válvula selectora incorrecta",
+      "Tuberías sumidero obstruidas",
+      "Depurador defectuoso"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Presión filtro alto?",
+        "LAVA filtro"
+      ],
+      [
+        "¿Válvula correcta?",
+        "Verificar posición"
+      ]
+    ],
+    "interpretacion_resultados": "Caudal bajo = filtro sucio (LAVA).",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "¿Presión >0,5? → LAVA filtro"
+      ],
+      [
+        "2",
+        "¿Válvula en 'robot'? → Cambiar si no"
+      ],
+      [
+        "3",
+        "Desconecta robot"
+      ],
+      [
+        "4",
+        "¿Agua sale tuberías robot? → Si NO: tuberías obstruidas"
+      ],
+      [
+        "5",
+        "Reconecta → debe aspirar"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Filtro lavado | ✓ Válvula verificada | ✓ Tuberías limpias | ✓ Caudal robot OK",
+    "construccion": "",
+    "cuando_derivar": [
+      "Si tuberías muy obstruidas"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Limpiafondos sin caudal. Filtro sucio o válvula mal posicionada. Lavamos filtro y verificamos válvula.",
+    "parte": "Problema: Limpiafondos no aspira. CAUSA: [Filtro/Válvula/Tuberías]. ACCIONES: Lavado. Caudal: [mejorado/igual].",
+    "modulo_relacionado": "",
+    "fuentes": []
+  },
+  {
+    "id": "salino_no_produce",
+    "titulo": "Salino no produce cloro",
+    "categoria": "salino",
+    "prioridad": "alta",
+    "destacado": true,
+    "sintomas": [
+      "Cloro no sube en 12h",
+      "Célula sucia",
+      "Sin producción salino"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Sistema salino no produce cloro. Causa: célula sucia (mineral), sal baja, software error o electrodos agotados.",
+    "causas": [
+      "Célula mineral-encalcificada",
+      "Sal baja (<500 ppm)",
+      "Software reseteo",
+      "Electrodos agotados"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Hay sal?",
+        "Si <500 ppm: añadir"
+      ],
+      [
+        "¿Célula sucia?",
+        "Limpiar vinagre 1h"
+      ]
+    ],
+    "interpretacion_resultados": "Célula sucia = 80% de problemas.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide sal (>500 ppm?)"
+      ],
+      [
+        "2",
+        "Si sal baja → añade"
+      ],
+      [
+        "3",
+        "Limpia célula: vinagre 1h"
+      ],
+      [
+        "4",
+        "Reset software"
+      ],
+      [
+        "5",
+        "Cloro a 12h (¿subió?)"
+      ],
+      [
+        "6",
+        "Si no → derivar"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Sal: ~10–20 kg para 50m³.",
+    "checklist": "✓ Sal medida | ✓ Sal añadida | ✓ Limpieza vinagre | ✓ Reset software | ✓ Cloro sube a 12h",
+    "construccion": "CLIMA SECO: Cristalización rápida.",
+    "cuando_derivar": [
+      "Si electrodos agotados"
+    ],
+    "cuando_cerrar_bano": [
+      "Si cloro no sube 24h"
+    ],
+    "cliente": "Sistema salino no genera cloro. Célula sucia. La limpiamos. Si no funciona, necesita técnico.",
+    "parte": "Problema: Salino no produce. CAUSA: [Célula/Sal/Software]. ACCIONES: Limpieza. Cloro sube: SÍ/NO.",
+    "modulo_relacionado": "M10",
+    "fuentes": [],
+    "arbol_relacionado": null
+  },
+  {
+    "id": "pierde_agua",
+    "titulo": "Piscina pierde agua",
+    "categoria": "fugas",
+    "prioridad": "media",
+    "destacado": true,
+    "sintomas": [
+      "Nivel baja constantemente",
+      "Manchas agua alrededor"
+    ],
+    "palabras_clave": [
+      "fugas"
+    ],
+    "sinonimos": [
+      "se va el agua",
+      "piscina baja"
+    ],
+    "problema_explicado": "Nivel baja constantemente. CAUSA: evaporación NORMAL (0,3–0,5 cm/día verano) u FUGA real. Diagnosticar crítico.",
+    "causas": [
+      "Evaporación normal",
+      "Fuga vaso",
+      "Fuga tuberías",
+      "Desbordamiento"
+    ],
+    "parametros": [
+      [
+        "Test",
+        "Normal",
+        "Anormal"
+      ],
+      [
+        "Velocidad",
+        "0,3–0,5 cm/día",
+        ">1 cm/día"
+      ],
+      [
+        "Patrón",
+        "Constante",
+        "Súbita"
+      ]
+    ],
+    "interpretacion_resultados": "<0,5 cm/24h = normal. >1 cm/24h = fuga.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Marca nivel"
+      ],
+      [
+        "2",
+        "Espera 24h sin piscina"
+      ],
+      [
+        "3",
+        "Mide nuevo"
+      ],
+      [
+        "4",
+        "Si <0,5 → normal"
+      ],
+      [
+        "5",
+        "Si >1 → fuga"
+      ],
+      [
+        "6",
+        "PARA bomba 24h"
+      ],
+      [
+        "7",
+        "¿Sigue bajando? → fuga VASO"
+      ],
+      [
+        "8",
+        "¿Para? → fuga TUBERÍAS"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Medición inicial | ✓ 24h espera | ✓ Medición final | ✓ Conclusión: [Evaporación/Fuga]",
+    "construccion": "VASO VIEJO: Probabilidad alta.",
+    "cuando_derivar": [
+      "Si fuga confirmada"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Pierde agua. Hacemos test para saber si evaporación normal o fuga. Si es fuga, buscamos.",
+    "parte": "Problema: Pérdida agua. INICIAL: __. FINAL (24h): __. PÉRDIDA: __ cm/día. DIAGNÓSTICO: [Evaporación/Fuga].",
+    "modulo_relacionado": "M8",
+    "fuentes": [],
+    "arbol_relacionado": "pierde_agua"
+  },
+  {
+    "id": "fondo_no_visible",
+    "titulo": "Fondo no visible / Cerrar baño",
+    "categoria": "seguridad",
+    "prioridad": "critica",
+    "destacado": true,
+    "sintomas": [
+      "No se ve fondo",
+      "Riesgo seguridad",
+      "Agua no transparente"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "FONDO NO VISIBLE = CRÍTICO DE SEGURIDAD. OBLIGATORIO: cerrar baño.",
+    "causas": [
+      "Agua verde",
+      "Agua turbia",
+      "Agua marrón"
+    ],
+    "parametros": [
+      [
+        "Test",
+        "Acción"
+      ],
+      [
+        "¿Ves profundidad 1,5m+?",
+        "Si NO: cierra baño"
+      ]
+    ],
+    "interpretacion_resultados": "Fondo NO visible = CIERRA BAÑO INMEDIATAMENTE.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN CRÍTICA"
+      ],
+      [
+        "1",
+        "CIERRA BAÑO AHORA"
+      ],
+      [
+        "2",
+        "Cartel visible + avisa administración"
+      ],
+      [
+        "3",
+        "DIAGNOSTICA color agua"
+      ],
+      [
+        "4",
+        "Sigue SOP color específico"
+      ],
+      [
+        "5",
+        "Filtra 24h"
+      ],
+      [
+        "6",
+        "RE-ABRE SOLO si fondo 100% visible"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Depende color agua.",
+    "checklist": "✓ BAÑO CERRADO | ✓ Cartel visible | ✓ Administración informada | ✓ Color diagnosticado | ✓ Tratamiento iniciado | ✓ Filtra 24h | ✓ Fondo visible 48–72h",
+    "construccion": "Cualquier vaso.",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [
+      "SIEMPRE si no ves fondo"
+    ],
+    "cliente": "No se ve el fondo. Por seguridad, hemos cerrado. Aplicamos tratamiento fuerte. Esperamos reabrir en 24–72h.",
+    "parte": "Problema: FONDO NO VISIBLE. CAUSA COLOR: [Verde/Turbia/Marrón]. BAÑO: CERRADO desde __ h. Tratamiento: __. Filtra 24h. FONDO VISIBLE: SÍ a __ h.",
+    "modulo_relacionado": "M1",
+    "fuentes": []
+  },
+  {
+    "id": "algas_recurrentes",
+    "titulo": "Algas recurrentes",
+    "categoria": "algas",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Algas que vuelven",
+      "Ciclo cada semana",
+      "Tratamiento no dura"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Algas que vuelven continuamente. Causa: cianúrico alto, zona muerta, renovación insuficiente.",
+    "causas": [
+      "Cianúrico >50",
+      "Zona muerta sin solución",
+      "Renovación agua insuficiente",
+      "Demanda orgánica permanente"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Cianúrico",
+        "30–50",
+        "Si >50: baja o renovación"
+      ]
+    ],
+    "interpretacion_resultados": "Recurrencia = problema de fondo.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide cianúrico. Si >50 → baja o renovación"
+      ],
+      [
+        "2",
+        "Revisa zonas muertas"
+      ],
+      [
+        "3",
+        "Plan renovación: 20–30% cada 2 semanas"
+      ],
+      [
+        "4",
+        "Monitor cloro diario"
+      ],
+      [
+        "5",
+        "Algas deben desaparecer en 2–3 semanas"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Cianúrico medido | ✓ Zonas muertas revisadas | ✓ Plan renovación | ✓ Monitor cloro diario | ✓ Algas desaparecidas en 2–3 semanas",
+    "construccion": "SKIMMER ÚNICO: Zona muerta crónica.",
+    "cuando_derivar": [
+      "Si >1 mes"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Algas vuelven porque hay problema de fondo: zona sin circulación o estabilizante en exceso. Necesitamos solución permanente.",
+    "parte": "Problema: Algas recurrentes. CIANÚRICO: __. CAUSA: [Cianúrico/Zona muerta]. PLAN: [Renovación/Sumidero]. Frecuencia: [mejorada/igual].",
+    "modulo_relacionado": "",
+    "fuentes": []
+  },
+  {
+    "id": "agua_marrón",
+    "titulo": "Agua marrón",
+    "categoria": "agua",
+    "prioridad": "alta",
+    "destacado": false,
+    "sintomas": [
+      "Agua color marrón",
+      "Oxidación metal",
+      "Agua turbia marrón"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [
+      "agua marrón"
+    ],
+    "problema_explicado": "Agua marrón por oxidación metales (hierro, manganeso) o materia orgánica descompuesta.",
+    "causas": [
+      "Hierro disuelto (pozo)",
+      "Manganeso en agua relleno",
+      "Descomposición materia orgánica",
+      "Óxido tuberías viejas"
+    ],
+    "parametros": [
+      [
+        "Test",
+        "Acción"
+      ],
+      [
+        "¿Color marrón oscuro?",
+        "Probablemente metal"
+      ],
+      [
+        "¿Color marrón claro?",
+        "Probablemente materia"
+      ]
+    ],
+    "interpretacion_resultados": "Marrón oscuro = metal. Marrón claro = materia.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Filtra 24h"
+      ],
+      [
+        "2",
+        "Mide pH"
+      ],
+      [
+        "3",
+        "Si metal: floculante + aspiración"
+      ],
+      [
+        "4",
+        "Si materia: choque cloro + floculante"
+      ],
+      [
+        "5",
+        "Persiste >48h → derivar"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Floculante + Choque cloro.",
+    "checklist": "✓ Color diagnosticado | ✓ Filtra 24h | ✓ pH medido | ✓ Floculante/Choque | ✓ Aspiración | ✓ Agua aclarada",
+    "construccion": "AGUA POZO: Metal frecuente.",
+    "cuando_derivar": [
+      "Si >48h"
+    ],
+    "cuando_cerrar_bano": [
+      "Recomendable si color oscuro"
+    ],
+    "cliente": "Agua marrón por metal disuelto. Aplicamos floculante + filtración. Si persiste, analizamos agua.",
+    "parte": "Problema: Agua marrón. COLOR: [oscuro/claro]. CAUSA: [Metal/Materia]. ACCIONES: [Floculante/Choque]. Estado: [marrón/aclarándose].",
+    "modulo_relacionado": "",
+    "fuentes": []
+  },
+  {
+    "id": "agua_espuma",
+    "titulo": "Agua con espuma",
+    "categoria": "agua",
+    "prioridad": "baja",
+    "destacado": false,
+    "sintomas": [
+      "Espuma superficie",
+      "Burbujas agua",
+      "Aspecto sucio"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Espuma en superficie. Causa: tensioactivos (jabones), materia orgánica o pH bajo.",
+    "causas": [
+      "Productos bañistas",
+      "Cosméticos/protectores",
+      "Materia orgánica",
+      "pH bajo"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Mucha espuma?",
+        "Probable tensioactivos"
+      ]
+    ],
+    "interpretacion_resultados": "Espuma = probable tensioactivos.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Filtra 24h"
+      ],
+      [
+        "2",
+        "Renovación agua parcial (20%)"
+      ],
+      [
+        "3",
+        "Si pH bajo → sube"
+      ],
+      [
+        "4",
+        "Espuma desaparece 24h"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Filtración 24h | ✓ Renovación 20% | ✓ pH medido | ✓ Espuma desaparecida",
+    "construccion": "",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Espuma por cosméticos de bañistas. Filtramos y ventilamos. Desaparece en 24h.",
+    "parte": "Problema: Espuma agua. CAUSA: [Tensioactivos/pH]. ACCIONES: Filtración. Espuma: [desaparecida/presente].",
+    "modulo_relacionado": "",
+    "fuentes": []
+  },
+  {
+    "id": "bomba_ruido",
+    "titulo": "Bomba hace ruido",
+    "categoria": "bomba",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Ruido bomba",
+      "Vibración fuerte",
+      "Sonido anormal"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Bomba hace ruido. Causa: cavitación (aire en sistema), rodamientos desgastados o desalineación.",
+    "causas": [
+      "Cavitación",
+      "Rodamientos desgastados",
+      "Desalineación eje",
+      "Objeto dentro motor"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Ruido succión?",
+        "Entra aire"
+      ],
+      [
+        "¿Ruido impulsor?",
+        "Rodamientos o cuerpo extraño"
+      ]
+    ],
+    "interpretacion_resultados": "Ruido + vibración = problema mecánico, DERIVAR.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Revisa nivel agua"
+      ],
+      [
+        "2",
+        "Si nivel correcto → revisar juntas"
+      ],
+      [
+        "3",
+        "Ruido persiste → DERIVAR"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Nivel verificado | ✓ Juntas revisadas | ✓ Ruido persiste → derivar",
+    "construccion": "BOMBAS ANTIGUAS: Rodamientos desgastados.",
+    "cuando_derivar": [
+      "Si ruido persiste después de revisar"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Bomba hace ruido anormal. Puede ser aire o desgaste mecánico. Revisamos primero. Si persiste, técnico.",
+    "parte": "Problema: Bomba hace ruido. TIPO: [succión/impulsor/vibración]. CAUSA: [Aire/Rodamientos]. ACCIONES: Revisión. Ruido: [mejorado/igual].",
+    "modulo_relacionado": "M6",
+    "fuentes": []
+  },
+  {
+    "id": "manchas_metalicas",
+    "titulo": "Manchas metálicas",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Manchas negras/marrones",
+      "Manchas en paredes",
+      "Óxido visible"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [
+      "manchas"
+    ],
+    "problema_explicado": "Manchas de metal precipitado (hierro, manganeso). Causa: metal en agua relleno.",
+    "causas": [
+      "Hierro en agua pozo",
+      "Manganeso en agua relleno",
+      "Corrosión tuberías viejas"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Manchas negras?",
+        "Probablemente manganeso"
+      ],
+      [
+        "¿Manchas marrones?",
+        "Probablemente hierro"
+      ]
+    ],
+    "interpretacion_resultados": "Manchas metal = análisis agua recomendado.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Limpieza mecánica: cepillo duro"
+      ],
+      [
+        "2",
+        "Floculante para sedimentar"
+      ],
+      [
+        "3",
+        "Aspiración sedimento"
+      ],
+      [
+        "4",
+        "Choque cloro"
+      ],
+      [
+        "5",
+        "Renovación 20–30%"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Floculante: (Vol÷100)×Dosis.",
+    "checklist": "✓ Limpieza mecánica | ✓ Floculante | ✓ Aspiración | ✓ Choque cloro | ✓ Manchas desaparecidas",
+    "construccion": "AGUA POZO: Metal frecuente.",
+    "cuando_derivar": [
+      "Si recurrentes"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Manchas por metal disuelto. Limpiamos, floculante y aspiramos. Reducimos metal con renovación.",
+    "parte": "Problema: Manchas metálicas. TIPO: [negras/marrones]. UBICACIÓN: __. ACCIONES: Limpieza. Manchas: [desaparecidas/presentes].",
+    "modulo_relacionado": "",
+    "fuentes": []
+  },
+  {
+    "id": "incrustaciones",
+    "titulo": "Incrustaciones calcáreas",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Depósitos blancos",
+      "Cal en tuberías",
+      "Manchas blancas"
+    ],
+    "palabras_clave": [
+      "cal"
+    ],
+    "sinonimos": [],
+    "problema_explicado": "Depósitos de cal (CaCO3) en paredes, tuberías. Causa: pH alto + dureza alta durante tiempo. PREVENCIÓN mejor.",
+    "causas": [
+      "pH alto (>7,6) + dureza alta (>400)",
+      "Falta renovación agua",
+      "Aireación excesiva"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "pH",
+        "7,2–7,6",
+        "Mantener rango"
+      ],
+      [
+        "Dureza",
+        "200–400",
+        "Si >400: renovación"
+      ]
+    ],
+    "interpretacion_resultados": "Incrustaciones = pH/dureza fuera de rango meses.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Limpieza mecánica: cepillo, raspa"
+      ],
+      [
+        "2",
+        "Si muy pegada: ácido muriático (PROFESIONAL)"
+      ],
+      [
+        "3",
+        "PREVENCIÓN: mantener pH 7,2–7,6 + dureza 200–400"
+      ],
+      [
+        "4",
+        "Renovación agua si dureza >400"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Ácido muriático (profesional).",
+    "checklist": "✓ Limpieza mecánica | ✓ pH + Dureza en rango | ✓ Renovación agua | ✓ Mantenimiento parámetros",
+    "construccion": "AGUA DURA: Incrustaciones inevitables. Plan limpieza periódica.",
+    "cuando_derivar": [
+      "Si muy severas"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Depósitos de cal. pH o dureza estuvieron fuera de rango. Limpiamos con ácido (profesional). Luego mantenemos parámetros.",
+    "parte": "Problema: Incrustaciones. UBICACIÓN: [Paredes/Fondo/Tuberías]. EXTENSIÓN: __%. pH: __. Dureza: __. ACCIONES: [Limpieza/Ácido]. Mantenimiento: [iniciado/no].",
+    "modulo_relacionado": "",
+    "fuentes": []
+  },
+  {
+    "id": "mantenimiento_tormenta",
+    "titulo": "Mantenimiento tras tormenta",
+    "categoria": "mantenimiento",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Lluvia fuerte",
+      "Hojas/suciedad agua",
+      "Agua turbia"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Tras tormenta: lluvia diluyó parámetros, carga sólida alta, pH puede bajar. Requiere inspección.",
+    "causas": [
+      "Lluvia diluyó parámetros",
+      "Carga sólida alta",
+      "Desbordamiento drenaje"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "¿Mucha suciedad?",
+        "Aspirar/Recoger"
+      ],
+      [
+        "¿Agua turbia?",
+        "Filtra + floculante"
+      ]
+    ],
+    "interpretacion_resultados": "Post-tormenta = siempre revisar parámetros.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Recoge hojas/suciedad visible"
+      ],
+      [
+        "2",
+        "Aspira fondo"
+      ],
+      [
+        "3",
+        "Mide pH, cloro, alcalinidad"
+      ],
+      [
+        "4",
+        "Si pH <7,0 → sube"
+      ],
+      [
+        "5",
+        "Si cloro <1 → dosifica"
+      ],
+      [
+        "6",
+        "Filtra 12h"
+      ],
+      [
+        "7",
+        "Re-mide a 12h"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "No hay.",
+    "checklist": "✓ Suciedad recogida | ✓ Fondo aspirado | ✓ Parámetros medidos | ✓ Correcciones hechas | ✓ Filtra 12h | ✓ Re-medición OK",
+    "construccion": "PISCINA DESCUBIERTA: Alta carga post-tormenta.",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Tras tormenta, lluvia diluyó agua y hay suciedad. Recogemos hojas, aspiramos, revisamos parámetros y corregimos.",
+    "parte": "Problema: Mantenimiento post-tormenta. Suciedad: [mucha/poca]. Parámetros antes: pH __, Cloro __. Parámetros después: pH __, Cloro __. ACCIONES: [Limpieza/Correcciones]. Estado: [OK/requiere más].",
+    "modulo_relacionado": "M9",
+    "fuentes": []
+  },
+  {
+    "id": "alta_carga_banyistas",
+    "titulo": "Piscina con alta carga de bañistas",
+    "categoria": "mantenimiento",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Muchos bañistas",
+      "Demanda cloro alta",
+      "Agua turbia rápido"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Evento piscina (fiesta, escuela). Alta carga orgánica = demanda cloro CRÍTICA.",
+    "causas": [
+      "Bañistas numerosos",
+      "Demanda orgánica súbita",
+      "Filtración insuficiente para carga"
+    ],
+    "parametros": [
+      [
+        "Parámetro",
+        "Rango OK",
+        "Acción"
+      ],
+      [
+        "Cloro",
+        "1–3",
+        "Si baja: CHOQUE"
+      ],
+      [
+        "Presión",
+        "0,2–0,4",
+        "Si sube: LAVA"
+      ]
+    ],
+    "interpretacion_resultados": "Alta carga = cloro cae rápido. Monitoreo cada 2–3h.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "PRE-EVENTO: Choque cloro suave"
+      ],
+      [
+        "2",
+        "DURANTE: mide cloro cada 2–3h"
+      ],
+      [
+        "3",
+        "Si baja <1 → CHOQUE corrector"
+      ],
+      [
+        "4",
+        "Filtra continuo"
+      ],
+      [
+        "5",
+        "POST-EVENTO: Choque fuerte"
+      ],
+      [
+        "6",
+        "Filtra 12h"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "CHOQUE normal + post-choque fuerte.",
+    "checklist": "✓ Pre-evento choque | ✓ Monitor cada 2–3h | ✓ Choques durante | ✓ Filtración continua | ✓ Post-evento choque fuerte | ✓ Filtra 12h",
+    "construccion": "PISCINA PEQUEÑA: Carga más crítica.",
+    "cuando_derivar": [],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Alta carga de bañistas consume cloro rápido. Aplicamos choque previo, monitoreamos cada pocas horas durante y hacemos choque fuerte después.",
+    "parte": "Problema: Alta carga bañistas. NÚMERO: __. PRE-EVENTO: Choque __. DURANTE: monitoreo cada 2h, choques: __ veces. POST-EVENTO: Choque fuerte. Filtra 12h. Estado: OK.",
+    "modulo_relacionado": "M9",
+    "fuentes": []
+  },
+  {
+    "id": "regulador_ph",
+    "titulo": "Regulador de pH no mide bien",
+    "categoria": "agua",
+    "prioridad": "media",
+    "destacado": false,
+    "sintomas": [
+      "Medida pH incorrecta",
+      "Sonda sucia",
+      "Regulador descalibrado"
+    ],
+    "palabras_clave": [],
+    "sinonimos": [],
+    "problema_explicado": "Regulador de pH (si existe) no mide o mide mal. Causa: sonda sucia, descalibrada o defectuosa. Requiere mantenimiento o reemplazo.",
+    "causas": [
+      "Sonda sucia (mineral)",
+      "Descalibración",
+      "Sonda envejecida/defectuosa",
+      "Falta buffer calibración"
+    ],
+    "parametros": [
+      [
+        "Revisión",
+        "Acción"
+      ],
+      [
+        "Sonda está sucia?",
+        "Limpiar con vinagre"
+      ],
+      [
+        "Medida errada?",
+        "Recalibrar o reemplazar"
+      ]
+    ],
+    "interpretacion_resultados": "Medida errática = sonda problema. Verificar manualmente con kit.",
+    "acciones": [
+      [
+        "PASO",
+        "ACCIÓN"
+      ],
+      [
+        "1",
+        "Mide pH manualmente (kit)"
+      ],
+      [
+        "2",
+        "Compara con regulador"
+      ],
+      [
+        "3",
+        "Si diferencia >0,3 → problema"
+      ],
+      [
+        "4",
+        "Limpia sonda con vinagre 30 min"
+      ],
+      [
+        "5",
+        "Recalibre según manual"
+      ],
+      [
+        "6",
+        "Si no mejora → reemplazo sonda"
+      ]
+    ],
+    "que_no_hacer": [],
+    "calculo_producto": "Sonda reemplazo: ~100–300€.",
+    "checklist": "✓ Medición manual | ✓ Comparación | ✓ Limpieza sonda | ✓ Recalibración | ✓ Reemplazo si necesario",
+    "construccion": "",
+    "cuando_derivar": [
+      "Si sonda defectuosa"
+    ],
+    "cuando_cerrar_bano": [
+      "No obligatorio"
+    ],
+    "cliente": "Regulador de pH no mide correctamente. La sonda está sucia o descalibrada. La limpiamos y recalibramos. Si no funciona, necesita reemplazo.",
+    "parte": "Problema: Regulador pH defectuoso. Medida regulador: __. Medida manual: __. DIFERENCIA: __. ACCIONES: [Limpieza/Recalibración/Reemplazo]. Medida correcta: SÍ/NO.",
+    "modulo_relacionado": "M3",
+    "fuentes": []
+  }
+]

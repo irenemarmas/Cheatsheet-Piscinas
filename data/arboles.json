@@ -1,0 +1,266 @@
+[
+  {
+    "id": "agua_verde",
+    "titulo": "Agua verde",
+    "nodes": [
+      {
+        "q": "1. ¿Se ve el fondo?",
+        "ops": [
+          {
+            "res": "No",
+            "act": "CIERRA BAÑO AHORA. Riesgo crítico de seguridad."
+          },
+          {
+            "res": "Sí",
+            "act": "Continuar diagnosis."
+          }
+        ]
+      },
+      {
+        "q": "2. ¿Funciona bomba y hay circulación?",
+        "ops": [
+          {
+            "res": "No",
+            "act": "Resolver hidráulica ANTES de químicos. (Ficha: Bomba no aspira)"
+          },
+          {
+            "res": "Sí",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "3. ¿pH está entre 7,2 y 7,6?",
+        "ops": [
+          {
+            "res": "No",
+            "act": "BAJA pH primero (crítico). Luego choque cloro."
+          },
+          {
+            "res": "Sí",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "4. ¿Cloro libre está bajo (<1 mg/L)?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "CHOQUE de cloro según volumen. Filtra 24h continuas. Esperada: 24–48h agua clara."
+          },
+          {
+            "res": "No",
+            "act": "Revisa cianúrico. Si >100: ÚNICA solución es renovación agua 20–30%."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "agua_turbia",
+    "titulo": "Agua turbia",
+    "nodes": [
+      {
+        "q": "1. ¿Presión filtro >0,5 bar?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "LAVA FILTRO: Parar → Lavado(2min) → Enjuague(1min) → Filtración. Presión debe bajar a 0,2–0,4."
+          },
+          {
+            "res": "No",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "2. ¿pH >7,6 o dureza >400?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "Equilibrio químico: baja pH o baja dureza (renovación si dureza >400)."
+          },
+          {
+            "res": "No",
+            "act": "Filtra 24h continuas. Agua debe aclarar."
+          }
+        ]
+      },
+      {
+        "q": "3. ¿Agua más clara a 12h?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "Continuar filtrando. A 24h debe estar clara."
+          },
+          {
+            "res": "No",
+            "act": "Sospecha junta araña rota. DERIVAR técnico."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bomba_no_aspira",
+    "titulo": "Bomba no aspira",
+    "nodes": [
+      {
+        "q": "1. ¿Prefiltro tiene agua?",
+        "ops": [
+          {
+            "res": "No",
+            "act": "LLENA manualmente con cubeta. Cebado manual = solución."
+          },
+          {
+            "res": "Sí",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "2. ¿Hay burbujas visibles en línea aspiración?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "Entra aire. Aprieta junta tapa prefiltro + todos los racores aspiración."
+          },
+          {
+            "res": "No",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "3. ¿Nivel agua cubre skimmer +5 cm?",
+        "ops": [
+          {
+            "res": "No",
+            "act": "SUBE nivel (5 cm mínimo sobre skimmer)."
+          },
+          {
+            "res": "Sí",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "4. ¿Válvulas aspiración ABIERTAS (asa alineada)?",
+        "ops": [
+          {
+            "res": "No",
+            "act": "ABRE válvulas. Asa paralela a tubería."
+          },
+          {
+            "res": "Sí",
+            "act": "Arranca bomba → verifica caudal."
+          }
+        ]
+      },
+      {
+        "q": "5. ¿Hay caudal visible + presión 0,3–0,5 bar?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "✓ ÉXITO. Bomba cebada y funcionando. Sin burbujas = correcto."
+          },
+          {
+            "res": "No",
+            "act": "PARA motor. Problema interno bomba. DERIVAR técnico."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cloro_no_aguanta",
+    "titulo": "Cloro no aguanta",
+    "nodes": [
+      {
+        "q": "1. ¿Cianúrico >100 mg/L?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "ÚNICA solución: Renovación agua 20–30%. Cloro está bloqueado."
+          },
+          {
+            "res": "No",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "2. ¿Cianúrico <20 mg/L?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "Cloro se evapora. AÑADE ESTABILIZANTE (cianúrico 30–50). Protege del sol."
+          },
+          {
+            "res": "No",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "3. ¿pH >7,6?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "BAJA pH. Cloro funciona mejor 7,2–7,6. pH alto = cloro débil."
+          },
+          {
+            "res": "No",
+            "act": "Continuar."
+          }
+        ]
+      },
+      {
+        "q": "4. ¿Cloro combinado >0,5 mg/L?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "CHOQUE de cloro. Demanda orgánica alta."
+          },
+          {
+            "res": "No",
+            "act": "Revisar salino funciona o demanda muy baja."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pierde_agua",
+    "titulo": "Piscina pierde agua",
+    "nodes": [
+      {
+        "q": "1. ¿Pérdida <0,5 cm/24h en verano?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "✓ NORMAL. Evaporación natural. Sin problema. Solo sube nivel regularmente."
+          },
+          {
+            "res": "No",
+            "act": "Continuar investigación."
+          }
+        ]
+      },
+      {
+        "q": "2. ¿PARA bomba 24h COMPLETA y nivel sigue bajando?",
+        "ops": [
+          {
+            "res": "Sí",
+            "act": "Fuga VASO (fisura en hormigón/liner). DERIVAR técnico especializado."
+          },
+          {
+            "res": "No",
+            "act": "Fuga TUBERÍAS (aspiración o impulsión). DERIVAR para test presión."
+          }
+        ]
+      }
+    ]
+  }
+]

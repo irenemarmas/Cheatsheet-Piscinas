@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cheatsheet SOP Profesional — mantenimiento de piscinas. 29 fichas de diagnóstico, calculadora de volumen y árboles de decisión.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#08394a">
+
+  <title>Cheatsheet de Piscinas · SOP Profesional</title>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="./manifest.webmanifest">
+
+  <!-- Apple PWA meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Piscinas SOP">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png">
+
+  <!-- Styles — no external dependencies -->
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/print.css" media="print">
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HEADER ═══════════════════════════════════ -->
+<header class="app-header" role="banner">
+  <h1>💧 Cheatsheet de Piscinas · SOP Profesional</h1>
+</header>
+
+<!-- ═══════════════════════════════ MAIN ═════════════════════════════════════ -->
+<main class="container" role="main">
+
+  <!-- Install hint (dismissed once, hidden in standalone mode) -->
+  <div id="install-hint" class="install-hint" hidden aria-live="polite">
+    <span class="install-hint-text">
+      📲 <strong>Instalar en el móvil:</strong>
+      En Safari: compartir → «Añadir a pantalla de inicio».
+      En Chrome: menú → «Instalar app». Funciona sin conexión.
+    </span>
+    <button class="install-hint-close" aria-label="Cerrar sugerencia de instalación">✕</button>
+  </div>
+
+  <!-- ── Tab bar ──────────────────────────────────────────────────────────── -->
+  <nav class="main-tabs" role="tablist" aria-label="Secciones principales">
+    <button role="tab" class="active" data-tab="fichas-tab"
+            aria-selected="true"  aria-controls="fichas-tab">📋 Fichas</button>
+    <button role="tab"             data-tab="calculos-tab"
+            aria-selected="false" aria-controls="calculos-tab">📐 Cálculos</button>
+    <button role="tab"             data-tab="arboles-tab"
+            aria-selected="false" aria-controls="arboles-tab">🌳 Árboles</button>
+  </nav>
+
+  <!-- ══════════════════════ FICHAS TAB ════════════════════════════════════ -->
+  <div id="fichas-tab" class="tab-content show" role="tabpanel" tabindex="-1">
+
+    <div class="fichas-header">
+      <h2>¿Qué problema estás viendo?</h2>
+    </div>
+
+    <!-- Search -->
+    <div class="search-box" role="search">
+      <label for="search-input">Buscar fichas</label>
+      <input
+        id="search-input"
+        type="search"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Busca: agua verde, bomba no chupa, pica la piel, chorros flojos, sale arena…"
+        aria-label="Buscar fichas de problemas"
+      >
+      <button id="search-clear" class="search-clear-btn" hidden
+              aria-label="Borrar búsqueda">✕</button>
+    </div>
+
+    <!-- Active filter chip -->
+    <div class="filter-info" id="filter-info" role="status" aria-live="polite">
+      <span id="filter-text"></span>
+      <button class="filter-clear-btn" data-action="clear-filter">Quitar filtro</button>
+    </div>
+
+    <!-- Categories -->
+    <section class="categories-section" aria-label="Filtrar por categoría">
+      <div class="categories-title">Explorar por categoría</div>
+      <div class="categories-grid" id="categories-grid" role="group"
+           aria-label="Categorías de problemas"></div>
+    </section>
+
+    <!-- Problemas más comunes -->
+    <section id="problemas-comunes-section" hidden>
+      <div class="section-heading">⚡ Problemas más comunes</div>
+      <div class="cards-grid" id="problemas-comunes" role="list"
+           aria-label="Fichas de problemas comunes"></div>
+    </section>
+
+    <!-- Otras fichas -->
+    <section id="otras-fichas-section" hidden>
+      <div class="section-heading">📋 Otras fichas</div>
+      <div class="cards-grid" id="otras-fichas" role="list"
+           aria-label="Otras fichas"></div>
+    </section>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state" role="status" aria-live="polite">
+      <h3>No encuentro una ficha exacta</h3>
+      <p>Prueba a buscar por síntoma visible: color del agua, olor, bomba, filtro, presión, fugas o irritación.</p>
+      <button data-action="reset-search">Ver todas las fichas</button>
+    </div>
+
+  </div><!-- /fichas-tab -->
+
+  <!-- ══════════════════════ CÁLCULOS TAB ══════════════════════════════════ -->
+  <div id="calculos-tab" class="tab-content" role="tabpanel" tabindex="-1">
+
+    <!-- Cheat-sheet text (rendered from calculos.json) -->
+    <div class="chuleta-section">
+      <h2>📐 Chuleta General: Cálculos Esenciales</h2>
+      <div id="calculos-content"><!-- rendered by JS --></div>
+    </div>
+
+    <!-- Volume calculator -->
+    <div class="calculator">
+      <h2>🧮 Calculadora de Volumen</h2>
+
+      <form id="calc-form" novalidate aria-label="Calculadora de volumen de piscina">
+        <div class="calc-form">
+
+          <div class="calc-input">
+            <label for="calc-tipo">Tipo de piscina</label>
+            <select id="calc-tipo" name="tipo">
+              <option value="rectangular">Rectangular</option>
+              <option value="redonda">Redonda</option>
+              <option value="ovalada">Ovalada</option>
+            </select>
+          </div>
+
+          <div class="calc-input">
+            <label for="calc-largo" id="calc-largo-label">Largo (m)</label>
+            <input type="number" id="calc-largo" name="largo"
+                   step="0.1" min="0" placeholder="0.0"
+                   inputmode="decimal" aria-describedby="calc-largo-label">
+          </div>
+
+          <div class="calc-input" id="calc-ancho-group">
+            <label for="calc-ancho">Ancho (m)</label>
+            <input type="number" id="calc-ancho" name="ancho"
+                   step="0.1" min="0" placeholder="0.0" inputmode="decimal">
+          </div>
+
+          <div class="calc-input">
+            <label for="calc-prof-min">Prof. mín. (m)</label>
+            <input type="number" id="calc-prof-min" name="prof-min"
+                   step="0.1" min="0" placeholder="0.0" inputmode="decimal">
+          </div>
+
+          <div class="calc-input">
+            <label for="calc-prof-max">Prof. máx. (m)</label>
+            <input type="number" id="calc-prof-max" name="prof-max"
+                   step="0.1" min="0" placeholder="0.0" inputmode="decimal">
+          </div>
+
+        </div><!-- /calc-form grid -->
+      </form>
+
+      <div id="calc-output" class="calc-results" role="status" aria-live="polite">
+        <p>Profundidad media: <span class="calc-value" id="calc-prof-media">—</span> m</p>
+        <p>Volumen: <span class="calc-value" id="calc-m3">—</span> m³</p>
+        <p>Litros: <span class="calc-value" id="calc-litros">—</span> L</p>
+        <button id="calc-copy" class="calc-copy-btn" type="button">Copiar resultado</button>
+      </div>
+    </div>
+
+  </div><!-- /calculos-tab -->
+
+  <!-- ══════════════════════ ÁRBOLES TAB ═══════════════════════════════════ -->
+  <div id="arboles-tab" class="tab-content" role="tabpanel" tabindex="-1">
+
+    <div class="trees-header">
+      <h2>🌳 Árboles de Decisión Rápida</h2>
+      <nav id="trees-nav" class="tree-nav" aria-label="Árboles de decisión">
+        <!-- rendered by JS -->
+      </nav>
+    </div>
+
+    <div id="trees-container">
+      <!-- rendered by JS -->
+    </div>
+
+  </div><!-- /arboles-tab -->
+
+</main><!-- /main -->
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer class="app-footer" role="contentinfo">
+  SOP Profesional · <span id="footer-count">29 fichas</span> · Buscador · Cálculos · Árboles de decisión
+</footer>
+
+<!-- ═══════════════════════════════ DRAWER ═══════════════════════════════════ -->
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <!-- content injected by JS -->
+</div>
+
+<!-- ═══════════════════════════════ TOAST ════════════════════════════════════ -->
+<div id="update-toast" class="update-toast" role="status" aria-live="polite">
+  <span>Hay una nueva versión disponible</span>
+  <button data-update type="button">Actualizar</button>
+</div>
+
+<!-- ═══════════════════════════════ APP SCRIPT ═══════════════════════════════ -->
+<script type="module" src="./src/app.js"></script>
+
+</body>
+</html>

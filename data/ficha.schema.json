@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ficha.schema.json",
+  "title": "Ficha de diagnóstico",
+  "description": "Una ficha de diagnóstico del Cheatsheet Piscinas SOP",
+  "type": "object",
+  "required": ["id","titulo","categoria","prioridad","destacado",
+               "sintomas","palabras_clave","sinonimos","problema_explicado",
+               "causas","parametros","interpretacion_resultados","acciones",
+               "que_no_hacer","calculo_producto","checklist","construccion",
+               "cuando_derivar","cuando_cerrar_bano","cliente","parte",
+               "modulo_relacionado","fuentes"],
+  "additionalProperties": false,
+  "properties": {
+    "id":                      { "type": "string", "minLength": 1 },
+    "titulo":                  { "type": "string", "minLength": 1 },
+    "categoria":               { "type": "string" },
+    "prioridad":               { "type": "string", "enum": ["baja","media","alta","critica"] },
+    "destacado":               { "type": "boolean" },
+    "sintomas":                { "type": "array", "items": { "type": "string" } },
+    "palabras_clave":          { "type": "array", "items": { "type": "string" } },
+    "sinonimos":               { "type": "array", "items": { "type": "string" } },
+    "problema_explicado":      { "type": "string" },
+    "causas":                  { "type": "array", "items": { "type": "string" } },
+    "parametros":              {
+      "type": "array",
+      "description": "Array of rows; first row is headers",
+      "items": { "type": "array", "items": { "type": "string" } }
+    },
+    "interpretacion_resultados": { "type": "string" },
+    "acciones":                {
+      "type": "array",
+      "description": "Array of rows; first row is headers",
+      "items": { "type": "array", "items": { "type": "string" } }
+    },
+    "que_no_hacer":            { "type": "array", "items": { "type": "string" } },
+    "calculo_producto":        { "type": "string" },
+    "checklist":               { "type": "string" },
+    "construccion":            { "type": "string" },
+    "cuando_derivar":          { "type": "array", "items": { "type": "string" } },
+    "cuando_cerrar_bano":      { "type": "array", "items": { "type": "string" } },
+    "cliente":                 { "type": "string" },
+    "parte":                   { "type": "string" },
+    "modulo_relacionado":      { "type": "string" },
+    "fuentes":                 { "type": "array", "items": { "type": "string" } },
+    "arbol_relacionado":       { "type": ["string","null"] }
+  }
+}

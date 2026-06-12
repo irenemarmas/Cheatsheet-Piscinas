@@ -1,0 +1,77 @@
+/**
+ * print.css — Print / PDF fallback for Cheatsheet Piscinas SOP
+ * Included via <link media="print"> in index.html.
+ */
+
+@media print {
+  /* Hide interactive / nav chrome */
+  .app-header,
+  .main-tabs,
+  .search-box,
+  .categories-section,
+  .filter-info,
+  .scrim,
+  .drawer,
+  .update-toast,
+  .install-hint,
+  .app-footer,
+  .d-tree-link,
+  .calc-copy-btn,
+  .tree-nav      { display: none !important; }
+
+  body {
+    background: #fff;
+    font-size: 11pt;
+    color: #000;
+  }
+
+  .container { max-width: none; padding: 0; }
+
+  /* Show all tab content in print */
+  .tab-content { display: block !important; }
+
+  /* Cards grid: 2-up in print */
+  .cards-grid { grid-template-columns: 1fr 1fr; gap: 8pt; }
+
+  .card {
+    page-break-inside: avoid;
+    border: 1pt solid #ccc;
+    box-shadow: none;
+    transform: none !important;
+  }
+
+  /* Decision trees — show all nodes expanded */
+  .tree-block   { page-break-inside: avoid; }
+  .tree-node    { margin-left: 12pt; }
+  .tree-option  { page-break-inside: avoid; }
+
+  /* Tables */
+  .d-table th, .d-table td,
+  .chuleta-params th, .chuleta-params td {
+    border: 0.5pt solid #999;
+    padding: 4pt;
+  }
+
+  /* Parameter values — keep large for legibility at arm's length */
+  .d-table td:nth-child(2) {
+    font-size: 12pt;
+    font-weight: bold;
+  }
+
+  /* Checklist */
+  .d-checklist {
+    border: 1pt solid #e25812;
+    background: #fff;
+  }
+
+  /* Priority badges */
+  .priority-baja, .priority-media,
+  .priority-alta, .priority-critica,
+  .priority-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+  /* Tree yes/no colours */
+  .tree-option-yes, .tree-option-no { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+  a[href]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+  a[href^="#"]::after { content: ""; }
+}

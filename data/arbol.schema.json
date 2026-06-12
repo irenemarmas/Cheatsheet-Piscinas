@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "arbol.schema.json",
+  "title": "Árbol de decisión",
+  "type": "object",
+  "required": ["id","titulo","nodes"],
+  "additionalProperties": false,
+  "properties": {
+    "id":     { "type": "string", "minLength": 1 },
+    "titulo": { "type": "string", "minLength": 1 },
+    "nodes":  {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["q","ops"],
+        "properties": {
+          "q":   { "type": "string", "minLength": 1 },
+          "ops": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["res","act"],
+              "properties": {
+                "res": { "type": "string" },
+                "act": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

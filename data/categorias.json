@@ -1,0 +1,38 @@
+{
+  "agua": {
+    "emoji": "💧",
+    "nombre": "Agua y química"
+  },
+  "algas": {
+    "emoji": "🦠",
+    "nombre": "Algas"
+  },
+  "bomba": {
+    "emoji": "⚙️",
+    "nombre": "Bomba"
+  },
+  "filtro": {
+    "emoji": "🛢️",
+    "nombre": "Filtro y válvula"
+  },
+  "fugas": {
+    "emoji": "🚱",
+    "nombre": "Fugas"
+  },
+  "robot": {
+    "emoji": "🤖",
+    "nombre": "Limpiafondos/robot"
+  },
+  "salino": {
+    "emoji": "⚗️",
+    "nombre": "Salino/dosificación"
+  },
+  "seguridad": {
+    "emoji": "⚡",
+    "nombre": "Seguridad"
+  },
+  "mantenimiento": {
+    "emoji": "🧰",
+    "nombre": "Mantenimiento"
+  }
+}

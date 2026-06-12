@@ -1,0 +1,18 @@
+{
+  "name": "cheatsheet-piscinas",
+  "version": "1.0.0",
+  "description": "Cheatsheet SOP Profesional — mantenimiento de piscinas",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "extract": "node scripts/extract.mjs",
+    "validate": "node scripts/validate.mjs",
+    "icons": "node scripts/gen-icons.mjs",
+    "serve": "npx --yes serve . -l 3000 --no-clipboard",
+    "prebuild": "npm run validate",
+    "build": "echo 'No build step needed — serve the project root directly.'"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

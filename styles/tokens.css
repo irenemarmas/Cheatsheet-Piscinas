@@ -1,0 +1,139 @@
+/**
+ * tokens.css — Design tokens for Cheatsheet Piscinas SOP
+ *
+ * Shared token file. The course module (curso-piscinas-modulo-1.html)
+ * should import this file when migrated, replacing its own :root block.
+ *
+ * FONTS
+ * Self-hosted Inter + IBM Plex Mono woff2 files go in /assets/fonts/.
+ * To activate: uncomment the @font-face blocks below and place the
+ * corresponding .woff2 files in /assets/fonts/.
+ * Download from: https://fonts.google.com/specimen/Inter
+ *                https://fonts.google.com/specimen/IBM+Plex+Mono
+ *
+ * Until woff2 files are added, the system-font fallback stack is used.
+ * On macOS/iOS this renders with SF Pro (visually close to Inter).
+ */
+
+/* ── Optional self-hosted fonts ──────────────────────────────────────────── */
+/*
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/inter-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/inter-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/inter-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/inter-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/ibm-plex-mono-500.woff2') format('woff2');
+}
+*/
+
+:root {
+  /* ── Brand colours ──────────────────────────────────────────────────────── */
+  --color-teal-dark:   #08394a;   /* header background, headings              */
+  --color-teal:        #0c6e88;   /* accent, links, active states             */
+  --color-teal-mid:    #1391b0;   /* hover states                             */
+  --color-teal-light:  #e8f4f8;   /* tinted backgrounds                       */
+  --color-green:       #2c8a58;   /* ok / success / sí                        */
+  --color-green-light: #e8f5e9;   /* green tinted backgrounds                 */
+  --color-alert:       #e25812;   /* warnings, no / danger                    */
+  --color-alert-light: #fff3e0;   /* alert tinted backgrounds                 */
+  --color-red-dark:    #c0392b;   /* tree-option-no border                    */
+
+  /* ── Neutral palette ────────────────────────────────────────────────────── */
+  --color-bg:          #f5f5f5;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f9f9f9;
+  --color-border:      #dddddd;
+  --color-border-light:#f0f0f0;
+  --color-text:        #1a1a1a;
+  --color-text-muted:  #666666;
+  --color-text-faint:  #999999;
+
+  /* ── Priority colours ───────────────────────────────────────────────────── */
+  --priority-baja-bg:    #c8e6c9;
+  --priority-baja-text:  #1b5e20;
+  --priority-media-bg:   #fff9c4;
+  --priority-media-text: #f57f17;
+  --priority-alta-bg:    #ffe0b2;
+  --priority-alta-text:  #e65100;
+  --priority-critica-bg: #ffcdd2;
+  --priority-critica-text:#b71c1c;
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Cascadia Code', 'Fira Mono', 'SF Mono',
+               'Consolas', 'Courier New', monospace;
+
+  --text-xs:   11px;
+  --text-sm:   12px;
+  --text-base: 14px;
+  --text-md:   15px;
+  --text-lg:   16px;
+  --text-xl:   18px;
+  --text-2xl:  24px;
+
+  --leading-tight:  1.3;
+  --leading-normal: 1.5;
+  --leading-loose:  1.6;
+
+  /* ── Spacing ────────────────────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 14px;
+  --space-6: 16px;
+  --space-7: 20px;
+  --space-8: 24px;
+
+  /* ── Radii & shadows ────────────────────────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  6px;
+  --radius-lg:  8px;
+  --radius-xl: 12px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.12);
+
+  /* ── Z-index stack ──────────────────────────────────────────────────────── */
+  --z-header:  100;
+  --z-scrim:    50;
+  --z-drawer:   60;
+  --z-toast:   200;
+
+  /* ── Transitions ────────────────────────────────────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-mid:  200ms ease;
+
+  /* ── Tap target minimum ─────────────────────────────────────────────────── */
+  --tap-min: 44px;
+}

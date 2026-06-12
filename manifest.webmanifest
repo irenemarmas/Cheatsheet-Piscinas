@@ -1,0 +1,50 @@
+{
+  "name": "Cheatsheet Piscinas SOP Profesional",
+  "short_name": "Piscinas SOP",
+  "description": "Herramienta de campo para técnicos de piscinas. 29 fichas de diagnóstico, calculadora y árboles de decisión. Funciona sin conexión.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#08394a",
+  "theme_color": "#08394a",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "./assets/icons/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

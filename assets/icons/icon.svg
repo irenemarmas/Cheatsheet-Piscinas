@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#08394a"/>
+  <!-- Water-drop shape (original art) -->
+  <path d="M256 80 C256 80 140 240 140 320
+           a116 116 0 0 0 232 0
+           C372 240 256 80 256 80Z"
+        fill="#1391b0"/>
+  <!-- Inner highlight -->
+  <ellipse cx="220" cy="310" rx="28" ry="42"
+           fill="rgba(255,255,255,0.22)" transform="rotate(-20 220 310)"/>
+  <!-- Wave line -->
+  <path d="M176 370 Q200 350 224 370 Q248 390 272 370 Q296 350 320 370"
+        stroke="rgba(255,255,255,0.5)" stroke-width="8"
+        stroke-linecap="round" fill="none"/>
+</svg>
