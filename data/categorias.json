@@ -34,5 +34,45 @@
   "mantenimiento": {
     "emoji": "🧰",
     "nombre": "Mantenimiento"
+  },
+  "seguridad_sanitaria": {
+    "emoji": "🚨",
+    "nombre": "Seguridad sanitaria"
+  },
+  "riesgo_quimico": {
+    "emoji": "☢️",
+    "nombre": "Riesgo químico"
+  },
+  "agua_quimica": {
+    "emoji": "🧪",
+    "nombre": "Agua y química"
+  },
+  "algas_biologia": {
+    "emoji": "🔬",
+    "nombre": "Algas y biología"
+  },
+  "turbidez_filtracion": {
+    "emoji": "🔍",
+    "nombre": "Turbidez y filtración"
+  },
+  "hidraulica": {
+    "emoji": "💦",
+    "nombre": "Hidráulica"
+  },
+  "valvulas_tuberias": {
+    "emoji": "🔩",
+    "nombre": "Válvulas y tuberías"
+  },
+  "cloracion_salina": {
+    "emoji": "🔋",
+    "nombre": "Cloración salina"
+  },
+  "automatizacion": {
+    "emoji": "🖥️",
+    "nombre": "Automatización"
+  },
+  "robot_limpieza": {
+    "emoji": "🤖",
+    "nombre": "Robot y limpieza"
   }
 }

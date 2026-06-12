@@ -295,5 +295,20 @@ function setupInstallHint() {
   });
 }
 
+// ── SOP Toggle (interactive Sí/No for descartar_urgente in V2 drawers) ───────
+window.sopToggle = function(qId, answer) {
+  const si    = document.getElementById(qId + '-si');
+  const no    = document.getElementById(qId + '-no');
+  const block = document.getElementById(qId);
+  if (!si || !no || !block) return;
+  si.hidden = answer !== 'si';
+  no.hidden = answer !== 'no';
+  block.querySelectorAll('.btn-si, .btn-no').forEach(b => {
+    const isActive = b.classList.contains('btn-' + answer);
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-pressed', String(isActive));
+  });
+};
+
 // ── Start ─────────────────────────────────────────────────────────────────────
 init();
