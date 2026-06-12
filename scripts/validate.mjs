@@ -142,6 +142,92 @@ VALID_CATEGORIAS.forEach(cat => {
 });
 ok('Category cross-reference done');
 
+// ── UX / Data-quality checks ──────────────────────────────────────────────────
+console.log('\n── UX quality ──────────────────────────────────────────────────');
+
+const GENERIC = new Set([
+  'no aplica','no especificado','no aplica en condiciones normales',
+  'valorar cierre si compromete seguridad','derivar si no se identifica causa',
+  'corregir y hacer seguimiento','riesgo medio','riesgo alto',
+  'riesgo medio: corregir y hacer seguimiento','riesgo alto: actuar antes de uso normal',
+]);
+
+function flatText(v) {
+  if (!v) return '';
+  if (typeof v === 'string') return v;
+  if (Array.isArray(v)) return v.map(flatText).join(' ');
+  if (typeof v === 'object') return Object.values(v).map(flatText).join(' ');
+  return String(v);
+}
+
+function hasObjectObj(v) {
+  return flatText(v).includes('[object Object]');
+}
+
+let uxErrors = 0, uxWarnings = 0;
+
+fichas.forEach((f, i) => {
+  const ref  = `ficha[${i}] "${f.id}"`;
+  const isV2 = f.version_sop === 'campo_v2';
+
+  // [object Object] check
+  const rendered = JSON.stringify(f);
+  if (hasObjectObj(rendered)) fail(`${ref}: contains [object Object] in serialized data`);
+
+  // V2 descartar_urgente shape
+  if (isV2 && f.descartar_urgente?.length) {
+    f.descartar_urgente.forEach((du, j) => {
+      if (du && typeof du === 'object') {
+        if (!du.pregunta) warn(`${ref}: descartar_urgente[${j}] missing 'pregunta'`);
+        if (!du.si)       warn(`${ref}: descartar_urgente[${j}] missing 'si'`);
+        if (!du.no)       warn(`${ref}: descartar_urgente[${j}] missing 'no'`);
+      }
+    });
+  }
+
+  // V2 decision_sop shape
+  if (isV2 && f.decision_sop?.length) {
+    f.decision_sop.forEach((ds, j) => {
+      if (ds && typeof ds === 'object') {
+        if (!ds.si && !ds.condicion)   warn(`${ref}: decision_sop[${j}] missing 'si'/'condicion'`);
+        const hacer = ds.hacer ?? ds.pasos;
+        if (!hacer?.length)            warn(`${ref}: decision_sop[${j}] missing 'hacer'/'pasos'`);
+      }
+    });
+  }
+
+  // Sections that would show only generic text
+  const fieldsToCheck = ['riesgo_inmediato','cuando_cerrar_bano','cuando_derivar','cuando_parar_equipo'];
+  fieldsToCheck.forEach(fd => {
+    const v = f[fd];
+    if (!v) return;
+    const arr = Array.isArray(v) ? v : [v];
+    const allGeneric = arr.every(x => GENERIC.has(flatText(x).trim().toLowerCase().replace(/\s+/g,' ')));
+    if (arr.length && allGeneric) warn(`${ref}: '${fd}' contains only generic text`);
+  });
+
+  // parametros accion_sop quality (V2 object format)
+  if (isV2 && f.parametros?.length) {
+    f.parametros.forEach((p, j) => {
+      if (p && typeof p === 'object' && p.parametro) {
+        if (!p.accion_sop || GENERIC.has((p.accion_sop || '').trim().toLowerCase()))
+          warn(`${ref}: parametros[${j}] '${p.parametro}' has no clear accion_sop`);
+      }
+    });
+  }
+
+  if (isV2) uxErrors += 0; // just counting
+});
+
+ok(`UX quality checks done (${fichas.filter(f=>f.version_sop==='campo_v2').length} V2 fichas checked)`);
+
+// ── Check index.html footer not hardcoded ────────────────────────────────────
+try {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  if (/29 fichas/.test(html)) warn('index.html footer still has hardcoded "29 fichas"');
+  else ok('index.html footer not hardcoded');
+} catch { /* skip */ }
+
 // ── Summary ───────────────────────────────────────────────────────────────────
 const v2count = fichas.filter(f => f.version_sop === 'campo_v2').length;
 console.log('\n────────────────────────────────────────────────────────────────');

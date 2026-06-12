@@ -160,7 +160,7 @@ function openFichaDrawer(id) {
   if (!DATA) return;
   const ficha = DATA.fichas.find(f => f.id === id);
   if (!ficha) return;
-  openDrawer(ficha.id, ficha.titulo, renderDrawerContent(ficha, DATA.prioridades));
+  openDrawer(ficha.id, ficha.titulo, renderDrawerContent(ficha, DATA.prioridades, DATA.categorias));
 }
 
 // Card clicks delegated on the container
@@ -294,6 +294,14 @@ function setupInstallHint() {
     localStorage.setItem('installHintDismissed', '1');
   });
 }
+
+// ── Open accordion by ID and scroll to it ────────────────────────────────────
+window.openAccordion = function(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.tagName === 'DETAILS') el.open = true;
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+};
 
 // ── SOP Toggle (interactive Sí/No for descartar_urgente in V2 drawers) ───────
 window.sopToggle = function(qId, answer) {
