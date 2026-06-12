@@ -31,6 +31,15 @@ export function fichaMatchesQuery(ficha, query) {
     ficha.checklist,
     ficha.construccion,
     ficha.cliente,
+    // v2 fields
+    ficha.situacion_visible,
+    ficha.riesgo_inmediato,
+    ...(ficha.descartar_urgente ?? []),
+    ...(ficha.comprobaciones_rapidas ?? []),
+    ...(ficha.protocolo ?? []),
+    ...(ficha.decision_sop ?? []).flatMap(b => [b.condicion, ...(b.pasos ?? [])]),
+    ...(ficha.calculo_rapido ?? []),
+    ...(ficha.seguimiento ?? []).flatMap(s => s.notas ?? []),
   ].join(' ');
   return normalizar(haystack).includes(q);
 }

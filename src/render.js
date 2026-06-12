@@ -84,9 +84,17 @@ function section(label, content, extraClass = '') {
 
 export function renderDrawerContent(ficha, prioridades) {
   const pLabel = prioridades[ficha.prioridad] ?? ficha.prioridad;
-
   const cerrarClass = ficha.cuando_cerrar_bano?.length ? ' d-cerrar-bano' : '';
+  const isV2 = !!(ficha.situacion_visible || ficha.protocolo?.length || ficha.decision_sop?.length);
 
+  return isV2
+    ? renderDrawerV2(ficha, pLabel, cerrarClass)
+    : renderDrawerV1(ficha, pLabel, cerrarClass);
+}
+
+// ── V1 drawer (legacy fichas) ─────────────────────────────────────────────────
+
+function renderDrawerV1(ficha, pLabel, cerrarClass) {
   return `
     <span class="priority-badge ${esc(ficha.prioridad)}">${esc(pLabel)}</span>
 
@@ -159,6 +167,148 @@ export function renderDrawerContent(ficha, prioridades) {
         ? `<p><strong>Fuentes:</strong> ${ficha.fuentes.map(f => esc(f)).join(', ')}</p>`
         : ''))}
   `;
+}
+
+// ── V2 drawer (SOP rewritten fichas) ─────────────────────────────────────────
+
+function renderDrawerV2(ficha, pLabel, cerrarClass) {
+  // ── 0. Header banner
+  const header = `<span class="priority-badge ${esc(ficha.prioridad)}">${esc(pLabel)}</span>`;
+
+  // ── 1. Situación visible (what the tech sees)
+  const situacion = ficha.situacion_visible
+    ? section('👁 Lo que ves',
+        `<p class="d-highlight">${esc(ficha.situacion_visible)}</p>`)
+    : '';
+
+  // ── 2. Riesgo inmediato (red alert if present)
+  const riesgo = ficha.riesgo_inmediato
+    ? `<div class="d-alert-block">
+         <strong>⚠ Riesgo inmediato:</strong> ${esc(ficha.riesgo_inmediato)}
+       </div>`
+    : '';
+
+  // ── 3. Descartar urgente (checklist)
+  const descartar = ficha.descartar_urgente?.length
+    ? section('🔴 Descarta primero',
+        `<ul class="d-checklist-list">${ficha.descartar_urgente.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`)
+    : '';
+
+  // ── 4. Comprobaciones rápidas
+  const comprobaciones = ficha.comprobaciones_rapidas?.length
+    ? section('🔎 Comprobaciones rápidas',
+        `<ul>${ficha.comprobaciones_rapidas.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`)
+    : '';
+
+  // ── 5. Decision SOP (condition → steps)
+  const decisionSop = ficha.decision_sop?.length
+    ? `<div class="d-section">
+         <div class="d-section-label">📋 Protocolo por situación</div>
+         ${ficha.decision_sop.map(block => `
+           <div class="d-sop-block">
+             <div class="d-sop-condicion">${esc(block.condicion)}</div>
+             <ol class="d-sop-pasos">${block.pasos.map(p => `<li>${esc(p)}</li>`).join('')}</ol>
+           </div>`).join('')}
+       </div>`
+    : '';
+
+  // ── 6. Parámetros (if present)
+  const parametros = ficha.parametros?.length > 1
+    ? section('📊 Qué medir',
+        renderTable(ficha.parametros) +
+        (ficha.interpretacion_resultados
+          ? `<p><strong>Interpretación:</strong> ${esc(ficha.interpretacion_resultados)}</p>`
+          : ''))
+    : '';
+
+  // ── 7. Protocolo general (numbered list)
+  const protocolo = ficha.protocolo?.length
+    ? `<div class="d-section">
+         <div class="d-section-label">🔧 Protocolo paso a paso</div>
+         <ol>${ficha.protocolo.map(p => `<li>${esc(p)}</li>`).join('')}</ol>
+       </div>`
+    : '';
+
+  // ── 8. Cálculo rápido
+  const calculoRapido = ficha.calculo_rapido?.length
+    ? `<div class="d-formula">
+         <div class="d-section-label">🧮 Cálculo</div>
+         ${ficha.calculo_rapido.map(line => `<code>${esc(line)}</code>`).join('')}
+       </div>`
+    : (ficha.calculo_producto
+        ? `<div class="d-formula">
+             <div class="d-section-label">🧮 Cálculo</div>
+             <code>${esc(ficha.calculo_producto)}</code>
+           </div>`
+        : '');
+
+  // ── 9. Qué no hacer
+  const queNoHacer = ficha.que_no_hacer?.length
+    ? section('🚫 Qué NO hacer',
+        `<ul>${ficha.que_no_hacer.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`)
+    : '';
+
+  // ── 10. Seguimiento
+  const seguimiento = ficha.seguimiento?.length
+    ? `<div class="d-section">
+         <div class="d-section-label">📅 Seguimiento</div>
+         ${ficha.seguimiento.map(s => `
+           <div class="d-seguimiento-item">
+             <strong>${esc(s.tiempo)}</strong>
+             ${s.notas?.length
+               ? `<ul>${s.notas.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`
+               : ''}
+           </div>`).join('')}
+       </div>`
+    : '';
+
+  // ── 11. Cerrar baño (safety — always render)
+  const cerrarBano = section('🚿 Cerrar baño',
+    (ficha.cuando_cerrar_bano?.length
+      ? `<ul>${ficha.cuando_cerrar_bano.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`
+      : '<p>No aplica en condiciones normales.</p>'),
+    cerrarClass);
+
+  // ── 12. Cuándo derivar
+  const derivar = section('📞 Cuándo derivar',
+    (ficha.cuando_derivar?.length
+      ? `<ul>${ficha.cuando_derivar.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`
+      : '<p>No especificado</p>'));
+
+  // ── 13. Tree link
+  const treeLink = ficha.arbol_relacionado
+    ? `<button class="d-tree-link" data-tree-id="${esc(ficha.arbol_relacionado)}">
+         🌳 Ver árbol de decisión relacionado
+       </button>`
+    : '';
+
+  // ── 14. Cliente & parte
+  const cliente = `
+    <div class="d-note">
+      <div class="d-note-label">💬 Cliente</div>
+      <p>"${esc(ficha.cliente || 'No especificado')}"</p>
+    </div>`;
+
+  const parte = `
+    <div class="d-note">
+      <div class="d-note-label">📋 Parte de trabajo</div>
+      <p><code>${esc(ficha.parte || 'No especificado')}</code></p>
+    </div>`;
+
+  // ── 15. Checklist (if present)
+  const checklist = ficha.checklist
+    ? `<div class="d-checklist">
+         <div class="d-section-label">✅ Checklist</div>
+         <p>${esc(ficha.checklist)}</p>
+       </div>`
+    : '';
+
+  return [
+    header, situacion, riesgo, descartar, comprobaciones,
+    decisionSop, parametros, protocolo, calculoRapido,
+    queNoHacer, seguimiento, cerrarBano, derivar,
+    treeLink, cliente, parte, checklist
+  ].join('\n');
 }
 
 // ── Cálculos cheat-sheet ──────────────────────────────────────────────────────
