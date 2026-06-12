@@ -18,7 +18,7 @@
       "se pone verde",
       "agua fea"
     ],
-    "problema_explicado": "Proliferación de algas por cloro insuficiente, pH fuera de rango o CYA bloqueado. Si no se ve el fondo es riesgo crítico de seguridad.",
+    "problema_explicado": "Proliferación de algas por cloro insuficiente, pH fuera de rango o A. Cianúrico bloqueado. Si no se ve el fondo es riesgo crítico de seguridad.",
     "causas": [
       "pH alto (>7,6)",
       "Cloro bajo",
@@ -44,13 +44,13 @@
         "Cloro libre",
         "1–3 mg/L orientativo",
         "Bajo (<0,5): desinfección insuficiente, las algas se multiplican sin freno. Alto (>5): puede impedir el baño.",
-        "Confirmar que el pH está en rango antes de dosificar. Aplicar cloro de choque (hipoclorito cálcico o sódico sin CYA) según volumen y etiqueta. Filtrar continuamente. Re medir a las 12–24 h."
+        "Confirmar que el pH está en rango antes de dosificar. Aplicar cloro de choque (hipoclorito cálcico o sódico sin A. Cianúrico) según volumen y etiqueta. Filtrar continuamente. Re medir a las 12–24 h."
       ],
       [
-        "Cianúrico (CYA)",
+        "Cianúrico (A. Cianúrico)",
         "30–50 mg/L orientativo",
         "Bajo (<20): el sol degrada el cloro libre en pocas horas. Alto (>100): el cloro queda bloqueado; el choque no tendrá efecto aunque el nivel parezca alto.",
-        "Si CYA > 100: renovar agua 20–30 % ANTES del choque; no añadir más cloro estabilizado. Si CYA < 20: valorar estabilizante tras resolver el episodio verde. Re medir CYA tras el relleno antes de continuar."
+        "Si A. Cianúrico > 100: renovar agua 20–30 % ANTES del choque; no añadir más cloro estabilizado. Si A. Cianúrico < 20: valorar estabilizante tras resolver el episodio verde. Re medir A. Cianúrico tras el relleno antes de continuar."
       ],
       [
         "Presión del filtro",
@@ -59,7 +59,7 @@
         "Si ha subido ~0,3 bar: hacer lavado y enjuague → LAVADO (2 min) → apagar bomba → ENJUAGUE (30 s) → apagar bomba → FILTRACIÓN. Apagar siempre la bomba antes de mover la válvula. Confirmar que la presión baja al valor limpio de referencia."
       ]
     ],
-    "interpretacion_resultados": "Prioridad: corregir pH → verificar CYA → aplicar choque → filtrar sin parar → re medir a las 12–24 h. Si el agua no aclara en 48 h con cloro y pH correctos, revisar CYA (puede estar bloqueando la desinfección).",
+    "interpretacion_resultados": "Prioridad: corregir pH → verificar A. Cianúrico → aplicar choque → filtrar sin parar → re medir a las 12–24 h. Si el agua no aclara en 48 h con cloro y pH correctos, revisar A. Cianúrico (puede estar bloqueando la desinfección).",
     "acciones": [
       [
         "PASO",
@@ -79,7 +79,7 @@
       ],
       [
         "4",
-        "Medir pH, cloro libre y CYA."
+        "Medir pH, cloro libre y A. Cianúrico."
       ],
       [
         "5",
@@ -87,7 +87,7 @@
       ],
       [
         "6",
-        "Si CYA > 100: renovar agua 20-30% antes del choque."
+        "Si A. Cianúrico > 100: renovar agua 20-30% antes del choque."
       ],
       [
         "7",
@@ -110,10 +110,10 @@
       "No aplicar choque con pH fuera de rango — el cloro pierde eficacia.",
       "No ignorar el fondo no visible — es un riesgo de seguridad real.",
       "No mezclar cloro con otros productos químicos — riesgo de gases tóxicos.",
-      "No añadir más cloro estabilizado si el CYA ya está alto."
+      "No añadir más cloro estabilizado si el A. Cianúrico ya está alto."
     ],
     "calculo_producto": "Dosis choque: (Vol ÷ 10) × dosis indicada en etiqueta. Calcular según volumen real.",
-    "checklist": "✓ Baño cerrado si fondo no visible | ✓ Materia orgánica retirada | ✓ Presión filtro revisada | ✓ pH, cloro y CYA medidos | ✓ pH en rango antes del choque | ✓ Choque aplicado | ✓ Filtración continua | ✓ Re medición a 12-24 h | ✓ Fondo visible antes de reabrir",
+    "checklist": "✓ Baño cerrado si fondo no visible | ✓ Materia orgánica retirada | ✓ Presión filtro revisada | ✓ pH, cloro y A. Cianúrico medidos | ✓ pH en rango antes del choque | ✓ Choque aplicado | ✓ Filtración continua | ✓ Re medición a 12-24 h | ✓ Fondo visible antes de reabrir",
     "construccion": "HORMIGÓN: Algas enraizadas. LINER: Liso, menos algas. ANTIGUO: Recuperación lenta. SKIMMER ÚNICO: Zona muerta.",
     "cuando_derivar": [
       "Si persiste >72h"
@@ -122,7 +122,7 @@
       "SIEMPRE si no se ve el fondo."
     ],
     "cliente": "El agua tiene algas por una bajada de cloro o pH fuera de rango. Hemos cerrado el baño por seguridad y aplicado tratamiento de choque. Con filtración continua, el agua debería aclarar en 24-48 horas.",
-    "parte": "Problema: Agua verde. Baño: CERRADO desde __ h. pH: __. Cloro: __. CYA: __. Acciones: lavado filtro / renovación agua / choque cloro. Próxima revisión: __ h. Fondo visible: SÍ/NO a __ h.",
+    "parte": "Problema: Agua verde. Baño: CERRADO desde __ h. pH: __. Cloro: __. A. Cianúrico: __. Acciones: lavado filtro / renovación agua / choque cloro. Próxima revisión: __ h. Fondo visible: SÍ/NO a __ h.",
     "modulo_relacionado": "M1, M3",
     "fuentes": [
       "RD 742/2013"
@@ -168,11 +168,11 @@
         ]
       },
       {
-        "condicion": "Si CYA > 100 mg/L:",
+        "condicion": "Si A. Cianúrico > 100 mg/L:",
         "pasos": [
           "No añadir más cloro estabilizado.",
           "Renovar parcialmente el agua: vaciar 20-30% y rellenar con agua fresca.",
-          "Re medir CYA tras la renovación.",
+          "Re medir A. Cianúrico tras la renovación.",
           "Reajustar pH y cloro después de rellenar."
         ]
       },
@@ -190,9 +190,9 @@
       "Cerrar baño si no se ve el fondo.",
       "Retirar hojas y materia orgánica visible.",
       "Medir presión del filtro y lavar si ha subido respecto a la presión limpia.",
-      "Medir pH, cloro libre y CYA.",
+      "Medir pH, cloro libre y A. Cianúrico.",
       "Ajustar pH a 7,2-7,6 si está fuera de rango.",
-      "Si CYA > 100 mg/L: renovar agua 20-30% antes del choque.",
+      "Si A. Cianúrico > 100 mg/L: renovar agua 20-30% antes del choque.",
       "Aplicar choque de cloro con filtración en marcha.",
       "Mantener filtración continua. Lavar filtro cuando suba la presión.",
       "Re medir a las 12-24 h.",
@@ -217,7 +217,7 @@
         "tiempo": "A 24 h:",
         "notas": [
           "Debe mejorar la visibilidad del fondo.",
-          "Si no mejora: revisar filtro, circulación y CYA."
+          "Si no mejora: revisar filtro, circulación y A. Cianúrico."
         ]
       },
       {
@@ -623,7 +623,7 @@
       "cloro se va",
       "no aguanta el cloro"
     ],
-    "problema_explicado": "El cloro libre cae a 0 en pocas horas. Causas: CYA bloqueado (>100), pH alto, alta demanda orgánica o cloro demasiado estabilizado.",
+    "problema_explicado": "El cloro libre cae a 0 en pocas horas. Causas: A. Cianúrico bloqueado (>100), pH alto, alta demanda orgánica o cloro demasiado estabilizado.",
     "causas": [
       "Demanda orgánica alta",
       "Cianúrico >100",
@@ -637,10 +637,10 @@
         "Acción SOP"
       ],
       [
-        "Cianúrico (CYA)",
+        "Cianúrico (A. Cianúrico)",
         "30–50 mg/L orientativo",
         "Bajo (<20 mg/L): el sol destruye el cloro libre en pocas horas. Alto (>100 mg/L): el cloro queda bloqueado y no hace efecto aunque el nivel parezca correcto.",
-        "Si CYA < 20: añadir estabilizante (ácido isocianúrico) para llevar a 30–50 mg/L; calcular según volumen y etiqueta. Si CYA > 100: renovar agua 20–30 %; no añadir más cloro estabilizado. Re medir CYA tras el relleno antes de continuar."
+        "Si A. Cianúrico < 20: añadir estabilizante (ácido isocianúrico) para llevar a 30–50 mg/L; calcular según volumen y etiqueta. Si A. Cianúrico > 100: renovar agua 20–30 %; no añadir más cloro estabilizado. Re medir A. Cianúrico tras el relleno antes de continuar."
       ],
       [
         "pH",
@@ -657,11 +657,11 @@
       [
         "Cloro libre al atardecer",
         "≥ 1 mg/L tras un día completo de sol",
-        "Bajo al final del día: el cloro no llega a la noche; confirma pérdida activa por UV (CYA bajo) o alta demanda orgánica.",
-        "Revisar CYA: si está bajo, añadir estabilizante. Si el CYA está en rango, revisar el sistema de dosificación y aumentar la dosis diaria hasta estabilizar el nivel nocturno."
+        "Bajo al final del día: el cloro no llega a la noche; confirma pérdida activa por UV (A. Cianúrico bajo) o alta demanda orgánica.",
+        "Revisar A. Cianúrico: si está bajo, añadir estabilizante. Si el A. Cianúrico está en rango, revisar el sistema de dosificación y aumentar la dosis diaria hasta estabilizar el nivel nocturno."
       ]
     ],
-    "interpretacion_resultados": "La causa más frecuente de pérdida rápida de cloro es CYA bajo (sol destruye el cloro) o CYA muy alto (cloro bloqueado). Medir el CYA es el primer paso antes de añadir más cloro.",
+    "interpretacion_resultados": "La causa más frecuente de pérdida rápida de cloro es A. Cianúrico bajo (sol destruye el cloro) o A. Cianúrico muy alto (cloro bloqueado). Medir el A. Cianúrico es el primer paso antes de añadir más cloro.",
     "acciones": [
       [
         "PASO",
@@ -669,11 +669,11 @@
       ],
       [
         "1",
-        "Medir pH, cloro libre, cloro combinado y CYA."
+        "Medir pH, cloro libre, cloro combinado y A. Cianúrico."
       ],
       [
         "2",
-        "Si CYA > 100: renovar agua antes de cualquier adición de cloro."
+        "Si A. Cianúrico > 100: renovar agua antes de cualquier adición de cloro."
       ],
       [
         "3",
@@ -681,7 +681,7 @@
       ],
       [
         "4",
-        "Si CYA < 20: añadir estabilizante para llevar a 30-50 mg/L."
+        "Si A. Cianúrico < 20: añadir estabilizante para llevar a 30-50 mg/L."
       ],
       [
         "5",
@@ -693,12 +693,12 @@
       ]
     ],
     "que_no_hacer": [
-      "No seguir dosificando cloro estabilizado si el CYA ya está alto — agrava el problema.",
+      "No seguir dosificando cloro estabilizado si el A. Cianúrico ya está alto — agrava el problema.",
       "No aplicar choque con pH fuera de rango — menor eficacia.",
-      "No ignorar el CYA alto: no se corrige con química, solo con renovación de agua."
+      "No ignorar el A. Cianúrico alto: no se corrige con química, solo con renovación de agua."
     ],
     "calculo_producto": "Renovación: vaciar 20-30% del volumen. Choque: (Vol ÷ 10) × dosis etiqueta.",
-    "checklist": "✓ CYA medido | ✓ pH en rango | ✓ Renovación si CYA > 100 | ✓ Estabilizante si CYA < 20 | ✓ Choque si combinado > 0,5 | ✓ Filtración continua | ✓ Cloro dura > 3 días a 1 semana",
+    "checklist": "✓ A. Cianúrico medido | ✓ pH en rango | ✓ Renovación si A. Cianúrico > 100 | ✓ Estabilizante si A. Cianúrico < 20 | ✓ Choque si combinado > 0,5 | ✓ Filtración continua | ✓ Cloro dura > 3 días a 1 semana",
     "construccion": "MUCHO SOL: Cianúrico crítico.",
     "cuando_derivar": [
       "Si >2 semanas"
@@ -707,7 +707,7 @@
       "Si el cloro libre es 0 durante más de 24 h."
     ],
     "cliente": "El cloro se consume muy rápido porque el estabilizante está en exceso o hay mucha carga orgánica. La solución es renovar parte del agua y ajustar los parámetros. Con esto el cloro volverá a durar días.",
-    "parte": "Problema: Cloro no aguanta. CYA: __. pH: __. Combinado: __. Acciones: [Renovación/Estabilizante/Choque]. Cloro dura: __ h antes / __ días después.",
+    "parte": "Problema: Cloro no aguanta. A. Cianúrico: __. pH: __. Combinado: __. Acciones: [Renovación/Estabilizante/Choque]. Cloro dura: __ h antes / __ días después.",
     "modulo_relacionado": "M10",
     "fuentes": [],
     "arbol_relacionado": "cloro_no_aguanta",
@@ -723,33 +723,33 @@
       "⛔ Si el agua presenta turbidez o color: cerrar baño y seguir la ficha correspondiente."
     ],
     "descartar_urgente": [
-      "Medir CYA: si es > 100 mg/L, el cloro está bloqueado y añadir más no sirve.",
+      "Medir A. Cianúrico: si es > 100 mg/L, el cloro está bloqueado y añadir más no sirve.",
       "Medir pH: con pH > 7,6 el cloro pierde gran parte de su eficacia."
     ],
     "comprobaciones_rapidas": [
       "¿Cuánto tiempo tarda en bajar el cloro a 0?",
-      "¿Cuál es el CYA actual?",
+      "¿Cuál es el A. Cianúrico actual?",
       "¿El pH está en rango?",
       "¿Ha habido alta carga de bañistas recientemente?",
       "¿Se está usando cloro estabilizado (tricloro/dicloro) como fuente principal?"
     ],
     "decision_sop": [
       {
-        "condicion": "Si CYA > 100 mg/L:",
+        "condicion": "Si A. Cianúrico > 100 mg/L:",
         "pasos": [
           "No añadir más cloro estabilizado.",
           "La única solución es renovar parcialmente el agua.",
           "Vaciar el 20-30% del volumen total y rellenar con agua fresca.",
-          "Re medir CYA tras la renovación.",
+          "Re medir A. Cianúrico tras la renovación.",
           "Reajustar pH y cloro después de rellenar."
         ]
       },
       {
-        "condicion": "Si CYA < 20 mg/L:",
+        "condicion": "Si A. Cianúrico < 20 mg/L:",
         "pasos": [
           "El cloro se degrada rápidamente por la radiación UV sin estabilizante.",
-          "Añadir estabilizante (ácido cianúrico) para llevar CYA a 30-50 mg/L.",
-          "Re medir CYA a los 2-3 días."
+          "Añadir estabilizante (ácido cianúrico) para llevar A. Cianúrico a 30-50 mg/L.",
+          "Re medir A. Cianúrico a los 2-3 días."
         ]
       },
       {
@@ -760,7 +760,7 @@
         ]
       },
       {
-        "condicion": "Si CYA y pH están en rango y el cloro sigue sin aguantar:",
+        "condicion": "Si A. Cianúrico y pH están en rango y el cloro sigue sin aguantar:",
         "pasos": [
           "Medir cloro combinado.",
           "Si combinado > 0,5 mg/L: alta demanda orgánica.",
@@ -770,25 +770,25 @@
       }
     ],
     "protocolo": [
-      "Medir pH, cloro libre, cloro combinado y CYA.",
-      "Si CYA > 100 mg/L: renovar agua 20-30% antes de cualquier adición de cloro.",
+      "Medir pH, cloro libre, cloro combinado y A. Cianúrico.",
+      "Si A. Cianúrico > 100 mg/L: renovar agua 20-30% antes de cualquier adición de cloro.",
       "Si pH > 7,6: ajustar pH antes de dosificar.",
-      "Si CYA < 20 mg/L: añadir estabilizante para llevar a 30-50 mg/L.",
+      "Si A. Cianúrico < 20 mg/L: añadir estabilizante para llevar a 30-50 mg/L.",
       "Si demanda orgánica alta (cloro combinado > 0,5): aplicar choque.",
       "Filtrar continuo y re medir a las 12-24 h.",
       "Si el cloro sigue sin aguantar: revisar carga orgánica y plan de renovación."
     ],
     "calculo_rapido": [
       "Renovación: vaciar el 20-30% del volumen total y rellenar.",
-      "Estabilizante: seguir dosis de etiqueta; re medir CYA a los 2-3 días.",
+      "Estabilizante: seguir dosis de etiqueta; re medir A. Cianúrico a los 2-3 días.",
       "Choque: calcular según volumen real y etiqueta del producto."
     ],
     "seguimiento": [
       {
         "tiempo": "A 24 h:",
         "notas": [
-          "Con CYA en rango y pH correcto, el cloro debe aguantar 3-5 días.",
-          "Si no aguanta: repetir medición de CYA y cloro combinado."
+          "Con A. Cianúrico en rango y pH correcto, el cloro debe aguantar 3-5 días.",
+          "Si no aguanta: repetir medición de A. Cianúrico y cloro combinado."
         ]
       },
       {
@@ -1316,13 +1316,13 @@
     ],
     "palabras_clave": [],
     "sinonimos": [],
-    "problema_explicado": "CYA por encima de 100 mg/L bloquea la disponibilidad del cloro. No hay corrección química posible: la única solución es renovar parte del agua.",
+    "problema_explicado": "A. Cianúrico por encima de 100 mg/L bloquea la disponibilidad del cloro. No hay corrección química posible: la única solución es renovar parte del agua.",
     "causas": [
       "Acumulación cianúrico sin renovación"
     ],
     "parametros": [
       [
-        "Nivel de CYA",
+        "Nivel de A. Cianúrico",
         "Estado",
         "Qué indica",
         "Acción SOP"
@@ -1331,28 +1331,28 @@
         "< 20 mg/L",
         "Bajo",
         "El sol destruye el cloro libre en pocas horas; la piscina queda sin desinfección efectiva durante el día.",
-        "Añadir estabilizante (ácido isocianúrico) para llevar el CYA a 30–50 mg/L. Calcular dosis según volumen y etiqueta. No sobredosificar. Re medir a las 24 h antes de añadir más."
+        "Añadir estabilizante (ácido isocianúrico) para llevar el A. Cianúrico a 30–50 mg/L. Calcular dosis según volumen y etiqueta. No sobredosificar. Re medir a las 24 h antes de añadir más."
       ],
       [
         "30–50 mg/L",
         "Óptimo",
         "Balance correcto entre protección UV y eficacia del cloro.",
-        "Mantener. Vigilar si se usa habitualmente cloro estabilizado (pastillas o granular con CYA); puede ir acumulando CYA con el tiempo."
+        "Mantener. Vigilar si se usa habitualmente cloro estabilizado (pastillas o granular con A. Cianúrico); puede ir acumulando A. Cianúrico con el tiempo."
       ],
       [
         "50–100 mg/L",
         "Elevado",
         "La eficacia del cloro empieza a reducirse; se necesita más cloro libre para obtener el mismo nivel de desinfección.",
-        "No añadir más cloro estabilizado (pastillas con CYA). Usar exclusivamente cloro sin estabilizante para los tratamientos. Planificar renovación parcial de agua si el CYA sigue subiendo en las siguientes visitas."
+        "No añadir más cloro estabilizado (pastillas con A. Cianúrico). Usar exclusivamente cloro sin estabilizante para los tratamientos. Planificar renovación parcial de agua si el A. Cianúrico sigue subiendo en las siguientes visitas."
       ],
       [
         "> 100 mg/L",
         "Crítico",
         "El cloro queda prácticamente bloqueado; los choques no tendrán efecto aunque el cloro libre parezca alto en el test.",
-        "Renovar agua 20–30 % de inmediato. No añadir más cloro estabilizado bajo ningún concepto. Re medir el CYA tras el relleno completo antes de reanudar la dosificación normal."
+        "Renovar agua 20–30 % de inmediato. No añadir más cloro estabilizado bajo ningún concepto. Re medir el A. Cianúrico tras el relleno completo antes de reanudar la dosificación normal."
       ]
     ],
-    "interpretacion_resultados": "El CYA no se puede reducir con productos químicos; la única solución es renovar agua. Si el CYA supera 100 mg/L, cualquier choque de cloro estabilizado será ineficaz. Usar siempre cloro sin CYA para los choques.",
+    "interpretacion_resultados": "El A. Cianúrico no se puede reducir con productos químicos; la única solución es renovar agua. Si el A. Cianúrico supera 100 mg/L, cualquier choque de cloro estabilizado será ineficaz. Usar siempre cloro sin A. Cianúrico para los choques.",
     "acciones": [
       [
         "PASO",
@@ -1360,11 +1360,11 @@
       ],
       [
         "1",
-        "Medir CYA con kit fiable."
+        "Medir A. Cianúrico con kit fiable."
       ],
       [
         "2",
-        "Si CYA > 100: informar al cliente de la necesidad de renovar agua."
+        "Si A. Cianúrico > 100: informar al cliente de la necesidad de renovar agua."
       ],
       [
         "3",
@@ -1376,11 +1376,11 @@
       ],
       [
         "5",
-        "Re medir CYA: debe haber bajado proporcionalmente."
+        "Re medir A. Cianúrico: debe haber bajado proporcionalmente."
       ],
       [
         "6",
-        "Si CYA sigue > 100: repetir la renovación."
+        "Si A. Cianúrico sigue > 100: repetir la renovación."
       ],
       [
         "7",
@@ -1392,59 +1392,59 @@
       ],
       [
         "9",
-        "No usar cloro estabilizado hasta que CYA baje a < 50 mg/L."
+        "No usar cloro estabilizado hasta que A. Cianúrico baje a < 50 mg/L."
       ]
     ],
     "que_no_hacer": [
-      "No intentar bajar el CYA con ningún producto químico — no funciona.",
-      "No añadir más cloro estabilizado hasta tener CYA < 50 mg/L.",
-      "No ignorar el CYA alto porque el agua tenga buen aspecto."
+      "No intentar bajar el A. Cianúrico con ningún producto químico — no funciona.",
+      "No añadir más cloro estabilizado hasta tener A. Cianúrico < 50 mg/L.",
+      "No ignorar el A. Cianúrico alto porque el agua tenga buen aspecto."
     ],
-    "calculo_producto": "Renovación agua 20-30% del volumen. No hay producto que corrija el CYA alto.",
-    "checklist": "✓ CYA medido | ✓ Sin más cloro estabilizado | ✓ Renovación realizada | ✓ CYA re medido tras renovación | ✓ pH ajustado | ✓ Cloro no estabilizado dosificado | ✓ CYA en rango 30-50",
+    "calculo_producto": "Renovación agua 20-30% del volumen. No hay producto que corrija el A. Cianúrico alto.",
+    "checklist": "✓ A. Cianúrico medido | ✓ Sin más cloro estabilizado | ✓ Renovación realizada | ✓ A. Cianúrico re medido tras renovación | ✓ pH ajustado | ✓ Cloro no estabilizado dosificado | ✓ A. Cianúrico en rango 30-50",
     "construccion": "MUCHO SOL: Cianúrico necesario (balance crítico).",
     "cuando_derivar": [],
     "cuando_cerrar_bano": [
-      "No obligatorio, pero el agua no está bien desinfectada con CYA > 100."
+      "No obligatorio, pero el agua no está bien desinfectada con A. Cianúrico > 100."
     ],
     "cliente": "El estabilizante está en exceso y bloquea la acción del cloro. La única solución es cambiar parte del agua para diluirlo. No hay ningún producto que lo corrija.",
-    "parte": "Problema: CYA alto. CYA inicial: __ mg/L. Renovación: __% del volumen. CYA tras renovación: __ mg/L. pH ajustado: __. Cloro no estabilizado: __.",
+    "parte": "Problema: A. Cianúrico alto. A. Cianúrico inicial: __ mg/L. Renovación: __% del volumen. A. Cianúrico tras renovación: __ mg/L. pH ajustado: __. Cloro no estabilizado: __.",
     "modulo_relacionado": "M3",
     "fuentes": [],
     "situacion_visible": [
       "El cloro libre cae rápido o está bajo aunque se dosa correctamente.",
-      "CYA medido por encima de 100 mg/L.",
+      "A. Cianúrico medido por encima de 100 mg/L.",
       "El agua puede tener buen aspecto visual.",
       "El problema es analítico: no es visible a simple vista."
     ],
     "riesgo_inmediato": [
-      "⚠️ Con CYA > 100 mg/L el cloro no desinfecta eficazmente, aunque la lectura de cloro libre sea positiva.",
+      "⚠️ Con A. Cianúrico > 100 mg/L el cloro no desinfecta eficazmente, aunque la lectura de cloro libre sea positiva.",
       "✅ Se puede mantener abierto si el cloro libre es > 1 mg/L, pero resolver de inmediato.",
       "⚠️ No es visible ni urgente, pero es un riesgo real para la salud."
     ],
     "descartar_urgente": [
-      "Confirmar que el CYA es realmente > 100 y no un error de test.",
+      "Confirmar que el A. Cianúrico es realmente > 100 y no un error de test.",
       "Repetir la medición con un kit diferente si hay duda."
     ],
     "comprobaciones_rapidas": [
       "¿Cuánto tiempo lleva la piscina sin renovación de agua?",
       "¿Se usa cloro estabilizado (tricloro/dicloro) como fuente principal de cloro?",
-      "¿Cuál es el CYA exacto?"
+      "¿Cuál es el A. Cianúrico exacto?"
     ],
     "decision_sop": [
       {
-        "condicion": "Si CYA > 100 mg/L:",
+        "condicion": "Si A. Cianúrico > 100 mg/L:",
         "pasos": [
           "No añadir más cloro estabilizado.",
           "Renovar parcialmente el agua: vaciar el 20-30% del volumen y rellenar con agua fresca.",
-          "Re medir CYA tras la renovación.",
+          "Re medir A. Cianúrico tras la renovación.",
           "Si sigue > 100: repetir la renovación.",
           "Reajustar pH a 7,2-7,6.",
           "Ajustar cloro libre a 1-3 mg/L usando cloro no estabilizado."
         ]
       },
       {
-        "condicion": "Si CYA entre 50 y 100 mg/L:",
+        "condicion": "Si A. Cianúrico entre 50 y 100 mg/L:",
         "pasos": [
           "No añadir más cloro estabilizado.",
           "Planificar renovación parcial de agua.",
@@ -1452,44 +1452,44 @@
         ]
       },
       {
-        "condicion": "Si CYA < 20 mg/L:",
+        "condicion": "Si A. Cianúrico < 20 mg/L:",
         "pasos": [
           "El cloro se degrada rápidamente por la radiación UV.",
-          "Añadir estabilizante para llevar CYA a 30-50 mg/L.",
+          "Añadir estabilizante para llevar A. Cianúrico a 30-50 mg/L.",
           "Re medir a los 2-3 días."
         ]
       }
     ],
     "protocolo": [
-      "Medir CYA con kit fiable.",
-      "Si CYA > 100 mg/L: informar al cliente de que hay que renovar agua.",
+      "Medir A. Cianúrico con kit fiable.",
+      "Si A. Cianúrico > 100 mg/L: informar al cliente de que hay que renovar agua.",
       "Vaciar el 20-30% del volumen total.",
       "Rellenar con agua fresca.",
-      "Re medir CYA: debe haber bajado proporcionalmente.",
+      "Re medir A. Cianúrico: debe haber bajado proporcionalmente.",
       "Si sigue > 100: repetir la renovación.",
       "Ajustar pH a 7,2-7,6.",
       "Ajustar cloro libre a 1-3 mg/L con cloro no estabilizado.",
-      "No volver a usar cloro estabilizado hasta que el CYA sea < 50 mg/L."
+      "No volver a usar cloro estabilizado hasta que el A. Cianúrico sea < 50 mg/L."
     ],
     "calculo_rapido": [
-      "Renovar el 20% del volumen reduce el CYA aproximadamente un 20%.",
-      "Ejemplo: CYA = 130 mg/L, renovamos 25% → CYA resultante ≈ 97 mg/L.",
+      "Renovar el 20% del volumen reduce el A. Cianúrico aproximadamente un 20%.",
+      "Ejemplo: A. Cianúrico = 130 mg/L, renovamos 25% → A. Cianúrico resultante ≈ 97 mg/L.",
       "Si sigue alto: repetir una segunda renovación.",
-      "No hay producto químico que baje el CYA: solo el agua fresca lo diluye."
+      "No hay producto químico que baje el A. Cianúrico: solo el agua fresca lo diluye."
     ],
     "seguimiento": [
       {
         "tiempo": "Tras la renovación:",
         "notas": [
-          "Re medir CYA a los 2 días (el agua de relleno necesita tiempo para mezclar bien).",
-          "Objetivo: CYA entre 30 y 50 mg/L."
+          "Re medir A. Cianúrico a los 2 días (el agua de relleno necesita tiempo para mezclar bien).",
+          "Objetivo: A. Cianúrico entre 30 y 50 mg/L."
         ]
       },
       {
         "tiempo": "A 1 semana:",
         "notas": [
           "Confirmar que el cloro libre se mantiene en rango con dosis normales.",
-          "Si el CYA vuelve a subir rápido: revisar si se sigue usando cloro estabilizado."
+          "Si el A. Cianúrico vuelve a subir rápido: revisar si se sigue usando cloro estabilizado."
         ]
       }
     ]
@@ -2373,7 +2373,7 @@
         "Temperatura del agua",
         "Por encima del umbral del fabricante (habitualmente > 15 °C)",
         "Temperatura baja (< 15 °C): los equipos salinos reducen o cortan la producción automáticamente. No es un fallo.",
-        "Si la temperatura está por debajo del umbral, no es un fallo del equipo. Aumentar la dosificación manual con cloro líquido o granular sin CYA mientras dure el período frío. Reactivar el equipo cuando el agua supere el umbral."
+        "Si la temperatura está por debajo del umbral, no es un fallo del equipo. Aumentar la dosificación manual con cloro líquido o granular sin A. Cianúrico mientras dure el período frío. Reactivar el equipo cuando el agua supere el umbral."
       ],
       [
         "Caudal / alarma de flujo",
@@ -2679,7 +2679,7 @@
         "Verde (cualquier tono, desde aguamarina a verde oscuro)",
         "Agua clara y transparente",
         "Proliferación de algas activa.",
-        "Seguir el protocolo de la ficha Agua verde. No añadir más cloro sin antes corregir el pH y verificar el CYA; si el CYA > 100, el choque no tendrá efecto."
+        "Seguir el protocolo de la ficha Agua verde. No añadir más cloro sin antes corregir el pH y verificar el A. Cianúrico; si el A. Cianúrico > 100, el choque no tendrá efecto."
       ],
       [
         "Marrón (oscuro, rojizo o anaranjado)",
@@ -2700,7 +2700,7 @@
         "Seguir el protocolo de la ficha Agua turbia. Comprobar el estado del filtro y el tiempo de filtración diaria antes de añadir floculante."
       ]
     ],
-    "interpretacion_resultados": "El color del agua orienta directamente la causa y la ficha a seguir. No tratar sin diagnosticar: un choque de cloro puede empeorar el agua marrón (precipita metales) o ser ineficaz en agua verde con CYA alto.",
+    "interpretacion_resultados": "El color del agua orienta directamente la causa y la ficha a seguir. No tratar sin diagnosticar: un choque de cloro puede empeorar el agua marrón (precipita metales) o ser ineficaz en agua verde con A. Cianúrico alto.",
     "acciones": [
       [
         "PASO",
@@ -2840,10 +2840,10 @@
         "Acción SOP"
       ],
       [
-        "Cianúrico (CYA)",
+        "Cianúrico (A. Cianúrico)",
         "30–50 mg/L orientativo",
         "Alto (>75 mg/L): el cloro queda progresivamente bloqueado; las algas aprovechan la desinfección deficiente para reaparecer visita tras visita.",
-        "Si CYA entre 50–100 mg/L: no añadir más cloro estabilizado; usar cloro sin CYA para los choques. Si CYA > 100 mg/L: renovar agua 20–30 % y re medir antes de reanudar la dosificación habitual."
+        "Si A. Cianúrico entre 50–100 mg/L: no añadir más cloro estabilizado; usar cloro sin A. Cianúrico para los choques. Si A. Cianúrico > 100 mg/L: renovar agua 20–30 % y re medir antes de reanudar la dosificación habitual."
       ],
       [
         "Cloro libre (final del día)",
@@ -2858,7 +2858,7 @@
         "Revisar la orientación de los boquillones de retorno: deben apuntar hacia el fondo y crear una circulación en espiral que alcance todos los rincones. Si hay esquinas muertas persistentes, ajustar los ángulos."
       ]
     ],
-    "interpretacion_resultados": "Las algas recurrentes casi siempre tienen tres causas: CYA alto (cloro bloqueado), desinfección insuficiente de noche o zonas muertas en la circulación. Verificar los tres antes de decidir el tratamiento.",
+    "interpretacion_resultados": "Las algas recurrentes casi siempre tienen tres causas: A. Cianúrico alto (cloro bloqueado), desinfección insuficiente de noche o zonas muertas en la circulación. Verificar los tres antes de decidir el tratamiento.",
     "acciones": [
       [
         "PASO",
