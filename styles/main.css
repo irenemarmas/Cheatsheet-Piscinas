@@ -816,6 +816,29 @@ body {
 }
 .d-seguimiento-item li { font-size: var(--text-sm); }
 
+.d-parar-equipo {
+  background: #fff3cd;
+  border-left: 4px solid #e07b00;
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  margin: var(--space-3) 0;
+}
+.d-parar-equipo .d-section-label { color: #7a4000; }
+.d-parar-equipo li { font-size: var(--text-sm); color: #5a3000; }
+
+.d-fuentes {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+.d-fuentes-list {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-5);
+}
+.d-fuentes-list li { font-size: var(--text-xs); color: var(--color-text-faint); margin: var(--space-1) 0; }
+.d-fuentes-tipo { font-weight: 600; color: var(--color-text-muted); }
+.d-fuentes-uso { color: var(--color-text-faint); }
+
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 .app-footer {
   text-align: center;

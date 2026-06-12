@@ -65,6 +65,20 @@ export function renderCards(fichas, categorias, prioridades) {
 
 // ── Drawer content ────────────────────────────────────────────────────────────
 
+/** Render fuentes: accepts string[] (legacy) or {tipo,nombre,uso}[] (v2) */
+function renderFuentes(fuentes) {
+  if (!fuentes?.length) return '';
+  const isObjects = typeof fuentes[0] === 'object';
+  if (isObjects) {
+    const tipoLabel = { normativa: '📜', guia_salud_publica: '🏥', guia_tecnica: '🔧', fabricante: '🏭' };
+    return `<ul class="d-fuentes-list">${fuentes.map(f =>
+      `<li><span class="d-fuentes-tipo">${tipoLabel[f.tipo] || '📄'} ${esc(f.nombre)}</span>${f.uso ? ` — <span class="d-fuentes-uso">${esc(f.uso)}</span>` : ''}</li>`
+    ).join('')}</ul>`;
+  }
+  // legacy: plain strings
+  return `<ul class="d-fuentes-list">${fuentes.map(f => `<li>${esc(f)}</li>`).join('')}</ul>`;
+}
+
 function renderTable(rows) {
   if (!rows || rows.length < 2) return '<p>No especificado</p>';
   const [headers, ...body] = rows;
@@ -161,11 +175,22 @@ function renderDrawerV1(ficha, pLabel, cerrarClass) {
       <p><code>${esc(ficha.parte || 'No especificado')}</code></p>
     </div>
 
+    ${ficha.cuando_parar_equipo?.length
+      ? `<div class="d-section d-parar-equipo">
+           <div class="d-section-label">🛑 Cuándo parar el equipo</div>
+           <ul>${ficha.cuando_parar_equipo.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+         </div>`
+      : ''}
+
     ${section('Adicional',
-      `<p><strong>Módulo:</strong> ${esc(ficha.modulo_relacionado || 'N/A')}</p>` +
-      (ficha.fuentes?.length
-        ? `<p><strong>Fuentes:</strong> ${ficha.fuentes.map(f => esc(f)).join(', ')}</p>`
-        : ''))}
+      `<p><strong>Módulo:</strong> ${esc(ficha.modulo_relacionado || 'N/A')}</p>`)}
+
+    ${ficha.fuentes?.length
+      ? `<div class="d-fuentes">
+           <div class="d-section-label">📚 Fuentes</div>
+           ${renderFuentes(ficha.fuentes)}
+         </div>`
+      : ''}
   `;
 }
 
@@ -262,27 +287,35 @@ function renderDrawerV2(ficha, pLabel, cerrarClass) {
        </div>`
     : '';
 
-  // ── 11. Cerrar baño (safety — always render)
+  // ── 11. Parar equipo (stop equipment warning block)
+  const pararEquipo = ficha.cuando_parar_equipo?.length
+    ? `<div class="d-section d-parar-equipo">
+         <div class="d-section-label">🛑 Cuándo parar el equipo</div>
+         <ul>${ficha.cuando_parar_equipo.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+       </div>`
+    : '';
+
+  // ── 12. Cerrar baño (safety — always render)
   const cerrarBano = section('🚿 Cerrar baño',
     (ficha.cuando_cerrar_bano?.length
       ? `<ul>${ficha.cuando_cerrar_bano.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`
       : '<p>No aplica en condiciones normales.</p>'),
     cerrarClass);
 
-  // ── 12. Cuándo derivar
+  // ── 13. Cuándo derivar
   const derivar = section('📞 Cuándo derivar',
     (ficha.cuando_derivar?.length
       ? `<ul>${ficha.cuando_derivar.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`
       : '<p>No especificado</p>'));
 
-  // ── 13. Tree link
+  // ── 14. Tree link
   const treeLink = ficha.arbol_relacionado
     ? `<button class="d-tree-link" data-tree-id="${esc(ficha.arbol_relacionado)}">
          🌳 Ver árbol de decisión relacionado
        </button>`
     : '';
 
-  // ── 14. Cliente & parte
+  // ── 15. Cliente & parte
   const cliente = `
     <div class="d-note">
       <div class="d-note-label">💬 Cliente</div>
@@ -295,7 +328,7 @@ function renderDrawerV2(ficha, pLabel, cerrarClass) {
       <p><code>${esc(ficha.parte || 'No especificado')}</code></p>
     </div>`;
 
-  // ── 15. Checklist (if present)
+  // ── 16. Checklist (if present)
   const checklist = ficha.checklist
     ? `<div class="d-checklist">
          <div class="d-section-label">✅ Checklist</div>
@@ -303,11 +336,19 @@ function renderDrawerV2(ficha, pLabel, cerrarClass) {
        </div>`
     : '';
 
+  // ── 17. Fuentes (handle both string[] and object[] formats)
+  const fuentes = ficha.fuentes?.length
+    ? `<div class="d-fuentes">
+         <div class="d-section-label">📚 Fuentes</div>
+         ${renderFuentes(ficha.fuentes)}
+       </div>`
+    : '';
+
   return [
     header, situacion, riesgo, descartar, comprobaciones,
     decisionSop, parametros, protocolo, calculoRapido,
-    queNoHacer, seguimiento, cerrarBano, derivar,
-    treeLink, cliente, parte, checklist
+    queNoHacer, seguimiento, pararEquipo, cerrarBano, derivar,
+    treeLink, cliente, parte, checklist, fuentes
   ].join('\n');
 }
 
