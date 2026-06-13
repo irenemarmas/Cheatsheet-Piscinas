@@ -17,6 +17,8 @@ function flat(v, sep = ' ') {
   return '';
 }
 function ensureArr(v) { if (!v) return []; return Array.isArray(v) ? v : [v]; }
+// Produce an ASCII-safe DOM id fragment from an arbitrary string (e.g. ficha ids with accents)
+function safeId(str) { return String(str||'').normalize('NFD').replace(/\p{Diacritic}/gu,'').replace(/[^a-zA-Z0-9_-]/g,'-'); }
 
 // ── Generic-text filter ───────────────────────────────────────────────────────
 const GENERIC = new Set([
@@ -158,16 +160,6 @@ function quickSummary(f) {
   return `<section class="quick-summary"><h3>Resumen rápido</h3>${lines.join('')}</section>`;
 }
 
-function miniNav(fid, f) {
-  const items = [];
-  if (ensureArr(f.decision_sop).length)          items.push(`<button class="qnav-btn" onclick="openAccordion('${fid}-decision')">Decisión</button>`);
-  if (ensureArr(f.parametros).length)             items.push(`<button class="qnav-btn" onclick="openAccordion('${fid}-mediciones')">Mediciones</button>`);
-  if (filterUseful(f.protocolo).length)           items.push(`<button class="qnav-btn" onclick="openAccordion('${fid}-protocolo')">Protocolo</button>`);
-  if (filterUseful(f.causa_raiz_probable).length) items.push(`<button class="qnav-btn" onclick="openAccordion('${fid}-causa')">Causa raíz</button>`);
-  if (filterUseful(f.cliente).length)             items.push(`<button class="qnav-btn" onclick="openAccordion('${fid}-cliente')">Cliente</button>`);
-  if (!items.length) return '';
-  return `<nav class="quick-nav"><span class="qnav-label">Ir a:</span>${items.join('')}</nav>`;
-}
 
 function renderParametros(pm) {
   if (!pm?.length) return '';
@@ -238,7 +230,7 @@ function renderDescartar(fid, du) {
   if (hasObjs) {
     const items = du.map((item, idx) => {
       if (item && typeof item === 'object' && item.pregunta) {
-        const qid = `dq-${esc(fid)}-${idx}`;
+        const qid = `dq-${safeId(fid)}-${idx}`;
         return `<div class="sop-question" id="${qid}">
   <p class="sop-question-title">${esc(item.pregunta)}</p>
   <div class="sop-question-actions">

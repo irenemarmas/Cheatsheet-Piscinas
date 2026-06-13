@@ -74,6 +74,8 @@ export function openDrawer(fichaId, titulo, bodyHtml) {
   drawer.setAttribute('role', 'dialog');
   drawer.setAttribute('aria-modal', 'true');
   drawer.setAttribute('aria-labelledby', titleId);
+  drawer.setAttribute('aria-hidden', 'false');
+  document.getElementById('scrim').setAttribute('aria-hidden', 'true');
 
   // Reset scroll
   drawer.querySelector('.drawer-body').scrollTop = 0;
@@ -95,6 +97,7 @@ export function closeDrawer(pushState = true) {
   if (!drawer || !scrim) return;
 
   drawer.classList.remove('show');
+  drawer.setAttribute('aria-hidden', 'true');
   scrim.classList.remove('show');
 
   if (pushState && location.hash.startsWith('#/ficha/')) {

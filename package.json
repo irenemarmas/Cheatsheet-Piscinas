@@ -9,6 +9,7 @@
     "validate": "node scripts/validate.mjs",
     "icons": "node scripts/gen-icons.mjs",
     "serve": "npx --yes serve . -l 3000 --no-clipboard",
+    "test:smoke": "node scripts/smoke-test.js",
     "prebuild": "npm run validate",
     "build": "echo 'No build step needed — serve the project root directly.'"
   },
