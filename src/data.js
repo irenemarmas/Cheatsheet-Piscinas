@@ -8,14 +8,15 @@ let _cache = null;
 export async function loadData() {
   if (_cache) return _cache;
 
-  const [fichas, arboles, categorias, prioridades, calculos] = await Promise.all([
+  const [fichas, arboles, categorias, prioridades, calculos, vocabulary] = await Promise.all([
     fetch('./data/fichas.json').then(r => r.json()),
     fetch('./data/arboles.json').then(r => r.json()),
     fetch('./data/categorias.json').then(r => r.json()),
     fetch('./data/prioridades.json').then(r => r.json()),
     fetch('./data/calculos.json').then(r => r.json()),
+    fetch('./data/search-vocabulary.json').then(r => r.json()).catch(() => ({})),
   ]);
 
-  _cache = { fichas, arboles, categorias, prioridades, calculos };
+  _cache = { fichas, arboles, categorias, prioridades, calculos, vocabulary };
   return _cache;
 }

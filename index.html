@@ -84,6 +84,9 @@
       <button class="filter-clear-btn" data-action="clear-filter">Quitar filtro</button>
     </div>
 
+    <!-- Result count -->
+    <div class="result-count" id="result-count" role="status" aria-live="polite" hidden></div>
+
     <!-- Categories -->
     <section class="categories-section" aria-label="Filtrar por categoría">
       <div class="categories-title">Explorar por categoría</div>
@@ -107,8 +110,18 @@
 
     <!-- Empty state -->
     <div class="empty-state" id="empty-state" role="status" aria-live="polite">
-      <h3>No encuentro una ficha exacta</h3>
-      <p>Prueba a buscar por síntoma visible: color del agua, olor, bomba, filtro, presión, fugas o irritación.</p>
+      <h3>No encuentro una ficha exacta.</h3>
+      <p>Prueba con:</p>
+      <div class="suggestion-chips" id="suggestion-chips">
+        <button type="button" class="suggestion-chip" data-suggestion="agua verde">agua verde</button>
+        <button type="button" class="suggestion-chip" data-suggestion="bomba no aspira">bomba no aspira</button>
+        <button type="button" class="suggestion-chip" data-suggestion="polvo fondo">polvo fondo</button>
+        <button type="button" class="suggestion-chip" data-suggestion="lavado filtro">lavado filtro</button>
+        <button type="button" class="suggestion-chip" data-suggestion="desagüe">desagüe</button>
+        <button type="button" class="suggestion-chip" data-suggestion="pH alto">pH alto</button>
+        <button type="button" class="suggestion-chip" data-suggestion="cloro bajo">cloro bajo</button>
+        <button type="button" class="suggestion-chip" data-suggestion="arena impulsores">arena impulsores</button>
+      </div>
       <button data-action="reset-search">Ver todas las fichas</button>
     </div>
 
