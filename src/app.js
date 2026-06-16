@@ -4,7 +4,7 @@
  */
 
 import { loadData }                     from './data.js';
-import { filtrarFichas }                from './search.js';
+import { filtrarFichas, setVocabulary } from './search.js';
 import { calcularVolumen, formatResultado,
          actualizarCamposCalc }         from './calculator.js';
 import { renderCategorias, renderCards,
@@ -38,6 +38,8 @@ async function init() {
       </div>`;
     return;
   }
+
+  setVocabulary(DATA.vocabulary);
 
   // Init subsystems
   initDrawer({ onTreeLink: jumpToTree });
@@ -152,7 +154,21 @@ function renderFichasTab() {
   if (comunesGrid)    comunesGrid.innerHTML  = renderCards(destacadas, categorias, prioridades);
   if (otrasSection)   otrasSection.hidden    = noDestacadas.length === 0;
   if (otrasGrid)      otrasGrid.innerHTML    = renderCards(noDestacadas, categorias, prioridades);
-  if (emptyState)     emptyState.classList.toggle('show', destacadas.length === 0 && noDestacadas.length === 0);
+  const totalCount = destacadas.length + noDestacadas.length;
+  if (emptyState)     emptyState.classList.toggle('show', totalCount === 0);
+
+  // Result count
+  const resultCount = document.getElementById('result-count');
+  if (resultCount) {
+    if (searchQuery) {
+      const noun  = totalCount === 1 ? 'ficha encontrada' : 'fichas encontradas';
+      const where = activeFilter ? ` en ${categorias[activeFilter]?.nombre ?? activeFilter}` : '';
+      resultCount.textContent = `${totalCount} ${noun}${where} para “${searchQuery}”`;
+      resultCount.hidden = false;
+    } else {
+      resultCount.hidden = true;
+    }
+  }
 }
 
 // ── Open a ficha ──────────────────────────────────────────────────────────────
@@ -168,11 +184,27 @@ document.addEventListener('click', e => {
   const card = e.target.closest('[data-ficha-id]');
   if (card) openFichaDrawer(card.dataset.fichaId);
 
-  if (e.target.matches('[data-action="reset-search"]')) {
-    document.getElementById('search-input').value = '';
+  const resetBtn = e.target.closest('[data-action="reset-search"], [data-action="show-all-fichas"]');
+  if (resetBtn) {
+    e.preventDefault();
+    const input = document.getElementById('search-input');
+    const clear = document.getElementById('search-clear');
+    if (input) input.value = '';
     searchQuery = '';
-    document.getElementById('search-clear').hidden = true;
+    if (clear) clear.hidden = true;
     activeFilter = null;
+    renderFichasTab();
+  }
+
+  const suggestionChip = e.target.closest('[data-suggestion]');
+  if (suggestionChip) {
+    e.preventDefault();
+    const value = suggestionChip.dataset.suggestion;
+    const input = document.getElementById('search-input');
+    const clear = document.getElementById('search-clear');
+    if (input) input.value = value;
+    searchQuery = value;
+    if (clear) clear.hidden = false;
     renderFichasTab();
   }
 

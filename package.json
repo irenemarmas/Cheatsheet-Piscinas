@@ -7,6 +7,7 @@
   "scripts": {
     "extract": "node scripts/extract.mjs",
     "validate": "node scripts/validate.mjs",
+    "test:search": "node scripts/search-regression-test.js",
     "icons": "node scripts/gen-icons.mjs",
     "serve": "npx --yes serve . -l 3000 --no-clipboard",
     "test:smoke": "node scripts/smoke-test.js",
